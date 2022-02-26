@@ -68,12 +68,15 @@ ol{
 .contentgrid{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	background-color: #f3f4f5;
-	padding: 20px;
 	margin: 20px;
 	max-width: 1200px;
 	width: 100%;
 	grid-gap: 40px;
+}
+
+.contentgrid div{
+	background-color: #f3f4f5;
+	padding: 20px;
 }
 
 .contentgrid-sticky{
