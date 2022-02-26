@@ -1,0 +1,98 @@
+
+*{
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-size: 20px;
+	font-family: gimlet-text, serif;
+	font-weight: 500;
+	font-style: normal;
+}
+
+h1{
+	font-size: 3rem;
+	margin: 40px 0 20px 0;
+}
+
+h2{
+	font-size: 1.5rem;
+	margin: 20px 0 20px 0;
+}
+
+h3{
+	margin: 40px 0 20px 0;
+}
+
+h4 {
+	margin: 20px 0 10px 0;
+	font-size: 1rem;
+}
+
+p{
+	margin: 10px 0 10px 0;
+	color: #35363a;
+	font-family: arial, serif;
+	font-size: 1rem;
+}
+
+ol{
+	margin: 10px 0 10px 0;
+	font-size: 1rem;
+	font-family: arial, serif;
+	color: #35363a;
+}
+
+.container{
+	display: flex;
+	justify-content: center;
+}
+
+.content{
+	width: 100%;
+	background-color: #f3f4f5;
+	padding: 20px;
+	max-width: 600px;
+	margin: 20px;
+}
+
+.hero{
+	width:100%;
+}
+
+.title{
+	margin-bottom: 40px;
+}
+
+.contentgrid{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	background-color: #f3f4f5;
+	padding: 20px;
+	margin: 20px;
+	max-width: 1200px;
+	width: 100%;
+	grid-gap: 40px;
+}
+
+.contentgrid-sticky{
+	position: sticky;
+	top: 20px;
+}
+
+@media only screen and (max-width: 800px) {
+	.contentgrid{
+		grid-template-columns: 1fr;
+	}
+	.contentgrid img{
+		grid-row-start: 1;
+	}
+	.contentgrid div{
+		grid-row-start: 2;
+	}
+	.contentgrid-sticky{
+		position: unset;
+		top: 0;
+	}
+}

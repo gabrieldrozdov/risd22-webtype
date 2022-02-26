@@ -35,9 +35,9 @@ function draw() {
       const y = height * (r / rows);
       const x = width * (c / columns);
 
-      fill(240, 100-cells[r][c], 100);
-      stroke(240, 100, 100);
-      strokeWeight(2);
+      fill(240, 0, 100-cells[r][c]);
+      stroke(240, 0, 100);
+      strokeWeight(5);
       rect(x, y, cellWidth, cellHeight, 5);
     }
   }

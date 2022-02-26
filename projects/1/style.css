@@ -1,0 +1,250 @@
+/* Fonts */
+
+@font-face{
+	font-family: "NeueBit";
+	src: url("fonts/NeueBit-Regular.otf") format("opentype"),
+		 url("fonts/NeueBit-Regular.woff") format("woff"),
+		 url("fonts/NeueBit-Regular.woff2") format("woff2");
+  font-weight: normal;
+}
+@font-face{
+	font-family: "NeueBit";
+	src: url("fonts/NeueBit-Bold.otf") format("opentype"),
+		 url("fonts/NeueBit-Bold.woff") format("woff"),
+		 url("fonts/NeueBit-Bold.woff2") format("woff2");
+  font-weight: bold;
+}
+@font-face{
+	font-family: "Basis";
+	src: url("fonts/BasisGrotesquePro-Regular.otf") format("opentype");
+  font-weight: normal;
+}
+@font-face{
+	font-family: "Basis";
+	src: url("fonts/BasisGrotesquePro-Bold.otf") format("opentype");
+  font-weight: bold;
+}
+@font-face{
+	font-family: "Basis";
+	src: url("fonts/BasisGrotesquePro-Italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face{
+	font-family: "Basis";
+	src: url("fonts/BasisGrotesquePro-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Base Styles */
+
+body {
+	background-color: #f4f0f0;
+	color: #323232;
+	margin: 0;
+}
+h1 {
+	font-family: NeueBit;
+	font-size: 12rem;
+	line-height: 8rem;
+	margin: 0 0 1rem 0;
+}
+h2 {
+	font-family: NeueBit;
+	font-size: 3rem;
+	line-height: 3rem;
+	margin: 0 0 1rem 0;
+}
+h3 {
+	font-family: Basis;
+	font-size: 2rem;
+	line-height: 2.5rem;
+	margin: 0;
+}
+p {
+	font-family: Basis;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	margin: 0;
+}
+a{
+	text-decoration: none;
+}
+
+/* Header */
+
+.header {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	width: calc(100vw - 40);
+	height: calc(100vh - 40);
+	background: white;
+	color: #323232;
+	border-radius: 20px;
+	margin: 20px;
+	padding: 20px;
+}
+.header-title {
+	display: flex;
+	flex-direction: column;
+	align-content: flex-end;
+	justify-content: flex-end;
+	padding: 40px;
+}
+.header-title h1 {
+	padding: 0;
+	margin: 0;
+	color: black;
+}
+.header-title h2 {
+	padding: 0;
+	margin: 0;
+	max-width: 600px;
+}
+.sketch-holder {
+	display: flex;
+	position: relative;
+	align-items: center;
+	align-content: center;
+}
+.sketch-holder img {
+	width: 100%;
+	max-width: 800px;
+	position: absolute;
+	padding: 40px;
+	box-sizing: border-box;
+}
+
+/* Key terms */
+
+.keyterm {
+	font-family: NeueBit;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 1.8rem;
+  animation-name: keyterm-glow;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  padding-top: 4px;
+  color: black;
+}
+@keyframes keyterm-glow {
+  from {
+    opacity: .5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* References */
+
+.reference {
+	font-weight: bold;
+	font-size: 1rem;
+	color: white;
+	background-color: black;
+	border-radius: 2rem;
+	text-align: center;
+	display: inline-flex;
+	width: 1.5rem;
+	height: 1.5rem;
+	justify-content: center;
+	vertical-align: center;
+}
+.reference:hover {
+	text-decoration: underline;
+}
+.reftxt {
+	font-family: Basis;
+	font-size: 1rem;
+}
+.reftxt-item {
+	display: grid;
+	background-color: white;
+	color: #323232;
+	padding: 20px;
+	border-radius: 20px;
+	grid-template-columns: .1fr 1fr;
+	grid-gap: 10px;
+	margin-bottom: 15px;
+	margin-top: 5px;
+	transition: .2s;
+}
+.reftxt-item:hover {
+	background-color: #323232;
+	color: white;
+}
+
+/* Body styles */
+
+.bodycontainer {
+	padding: 60px 20px 60px 20px;
+}
+.bodysection {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	padding: 60px 0 60px 0;
+}
+.bodycontent {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	grid-gap: 40px;
+	max-width: 1000px;
+	width: 100%;
+	flex-direction: column;
+}
+.bodycontent p {
+	max-width: 800px;
+	grid-column: 1;
+}
+.bodyimg {
+	background-color: #E5E5E5;
+	padding: 10px;
+	grid-column: 1;
+	display: flex;
+	justify-content: center;
+	border-radius: 20px;
+}
+.bodyimg img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.imgcap {
+	font-family: Basis;
+	font-size: 1rem;
+	align-self: end;
+}
+
+/* Footer */
+
+.footer {
+	width: 100%;
+	background-color: black;
+	padding: 60px 20px 60px 20px;
+	display: flex;
+	justify-content: center;
+	box-sizing: border-box;
+}
+.footer p {
+	font-family: NeueBit;
+	width: 100%;
+	text-transform: uppercase;
+	color: white;
+	max-width: 1000px;
+	line-height: .8em;
+	padding: 0;
+	margin: 0;
+}
+.return {
+	background-color: white;
+	color: black;
+}
+.return:hover {
+	background-color:black;
+	color:white;
+}
