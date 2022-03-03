@@ -1,12 +1,12 @@
-const rows = 10;
-const columns = 20;
-const fadeSpeed = .5;
+const rows = 8;
+const columns = 16;
+const fadeSpeed = 2;
 let cells = [];
 
 function setup() {
   var cnv = createCanvas(windowWidth/2 - 40, windowHeight - 80);
   cnv.parent('sketch-holder');
-  colorMode(HSB);
+  colorMode(RGB);
 
   for (let r = 0; r < rows; r++) {
     cells[r] = [];
@@ -27,18 +27,45 @@ function draw() {
     cells[mouseR][mouseC] = 100;
   }
 
+  cells[5][1] = 205;
+  cells[6][1] = 205;
+  cells[5][2] = 205;
+  cells[6][2] = 205;
+  cells[3][3] = 205;
+  cells[4][3] = 205;
+  cells[1][4] = 205;
+  cells[2][4] = 205;
+  cells[4][4] = 205;
+  cells[1][5] = 205;
+  cells[2][5] = 205;
+  cells[4][5] = 205;
+  cells[3][6] = 205;
+  cells[4][6] = 205;
+  cells[5][7] = 205;
+  cells[6][7] = 205;
+  cells[5][8] = 205;
+  cells[6][8] = 205;
+
+  cells[5][10] = 180;
+  cells[4][11] = 180;
+  cells[6][11] = 180;
+  cells[4][12] = 180;
+  cells[6][12] = 180;
+  cells[5][13] = 180;
+  cells[6][14] = 180;
+
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < columns; c++) {
       cells[r][c] -= fadeSpeed;
-      cells[r][c] = constrain(cells[r][c], 0, 100);
+      cells[r][c] = constrain(cells[r][c], 0, 255);
 
       const y = height * (r / rows);
       const x = width * (c / columns);
 
-      fill(240, 0, 100-cells[r][c]);
-      stroke(240, 0, 100);
-      strokeWeight(5);
-      rect(x, y, cellWidth, cellHeight, 5);
+      fill(255-cells[r][c], 255-cells[r][c], 255-cells[r][c]);
+      stroke(255, 255, 255);
+      strokeWeight(10);
+      rect(x, y, cellWidth, cellHeight, 20);
     }
   }
 

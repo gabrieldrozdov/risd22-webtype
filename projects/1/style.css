@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 /* Fonts */
 
 @font-face{
@@ -40,8 +44,7 @@
 /* Base Styles */
 
 body {
-	background-color: #f4f0f0;
-	color: #323232;
+	background-color: rgb(240,240,240);
 	margin: 0;
 }
 h1 {
@@ -57,9 +60,15 @@ h2 {
 	margin: 0 0 1rem 0;
 }
 h3 {
-	font-family: Basis;
+	font-family: NeueBit;
 	font-size: 2rem;
 	line-height: 2.5rem;
+	margin: 0;
+}
+h4 {
+	font-family: NeueBit;
+	font-size: 1rem;
+	line-height: 1rem;
 	margin: 0;
 }
 p {
@@ -67,6 +76,7 @@ p {
 	font-size: 1.5rem;
 	line-height: 2rem;
 	margin: 0;
+	color: rgb(50,50,50);
 }
 a{
 	text-decoration: none;
@@ -79,10 +89,10 @@ a{
 	grid-template-columns: 1fr 1fr;
 	width: calc(100vw - 40);
 	height: calc(100vh - 40);
-	background: white;
+	background-color: white;
 	color: #323232;
 	border-radius: 20px;
-	margin: 20px;
+	margin: 20px 20px 80px 20px;
 	padding: 20px;
 }
 .header-title {
@@ -95,12 +105,13 @@ a{
 .header-title h1 {
 	padding: 0;
 	margin: 0;
-	color: black;
+	color: rgb(25,25,25);
 }
 .header-title h2 {
 	padding: 0;
 	margin: 0;
 	max-width: 600px;
+	color: rgb(50,50,50);
 }
 .sketch-holder {
 	display: flex;
@@ -123,39 +134,95 @@ a{
 	text-transform: uppercase;
 	font-weight: bold;
 	font-size: 1.8rem;
+  padding-top: 4px;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px solid rgb(25,25,25);
+  cursor: pointer;
+  line-height: 1.5rem;
+}
+.keyterm:hover {
   animation-name: keyterm-glow;
-  animation-duration: 1s;
+  animation-duration: .5s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  padding-top: 4px;
-  color: black;
+  animation-timing-function: ease-in-out;
 }
 @keyframes keyterm-glow {
   from {
-    opacity: .5;
+    color: rgb(25, 25, 25);
   }
   to {
-    opacity: 1;
+    color: rgb(150,150,150);
   }
+}
+.keyterm .keytermdef {
+  visibility: hidden;
+  width: 200px;
+  background-color: rgb(25,25,25);
+  color: #fff;
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px 20px 18px 20px;
+  font-size: 1.4rem;
+  line-height: 1rem;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -120px;
+  animation-name: keyterm-float;
+  animation-duration: .5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+.keyterm:hover .keytermdef {
+  visibility: visible;
+  cursor: pointer;
+}
+@keyframes keyterm-float {
+	from {
+    bottom: 100%;
+  }
+  to {
+    bottom: 120%;
+  }
+}
+.keyterm .keytermdef::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgb(50,50,50) transparent transparent transparent;
 }
 
 /* References */
 
 .reference {
 	font-weight: bold;
-	font-size: 1rem;
+	font-size: .8rem;
 	color: white;
-	background-color: black;
+	background-color: rgb(50,50,50);
 	border-radius: 2rem;
 	text-align: center;
-	display: inline-flex;
+	display: inline-block;
 	width: 1.5rem;
 	height: 1.5rem;
-	justify-content: center;
-	vertical-align: center;
+	line-height: 1.6rem;
+	vertical-align: super;
+	transition: .2s;
 }
 .reference:hover {
-	text-decoration: underline;
+	text-decoration: none;
+	background-color: white;
+	color: rgb(50,50,50);
 }
 .reftxt {
 	font-family: Basis;
@@ -164,7 +231,7 @@ a{
 .reftxt-item {
 	display: grid;
 	background-color: white;
-	color: #323232;
+	color: rgb(50,50,50);
 	padding: 20px;
 	border-radius: 20px;
 	grid-template-columns: .1fr 1fr;
@@ -174,14 +241,14 @@ a{
 	transition: .2s;
 }
 .reftxt-item:hover {
-	background-color: #323232;
+	background-color: rgb(50,50,50);
 	color: white;
 }
 
 /* Body styles */
 
 .bodycontainer {
-	padding: 60px 20px 60px 20px;
+	padding: 0px 20px 0px 20px;
 }
 .bodysection {
 	display: flex;
@@ -200,6 +267,7 @@ a{
 .bodycontent p {
 	max-width: 800px;
 	grid-column: 1;
+	position: relative;
 }
 .bodyimg {
 	background-color: #E5E5E5;
@@ -219,32 +287,103 @@ a{
 	font-size: 1rem;
 	align-self: end;
 }
+.bodycontainer h3 {
+	font-size: 5.5rem;
+	line-height: 4rem;
+}
+
+/* Section breaks */
+
+.sectionhead-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	padding: 60px 20px 60px 20px;
+	margin: 60px 0 60px 0;
+	text-align: center;
+	flex-direction: column;
+	box-sizing: border-box;
+	background-color: white;
+	border-radius: 20px;
+}
+.sectionhead {
+  border-radius: 20px;
+  max-width: 1200px;
+  width: 100%;
+  border: 10px solid rgb(240, 240, 240);
+  color: rgb(25,25,25);
+  padding: 55px 20px 40px 20px;
+  animation-name: heading-ok-container;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-delay: -250ms;
+}
+.sectionhead h3 {
+	font-size: 18rem;
+	line-height: 12rem;
+  animation-name: heading-ok;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+@keyframes heading-ok-container {
+	from {
+		transform: scale(.3);
+		border: 10px solid rgb(240, 240, 240);
+	}
+	to {
+		transform: scale(.5);
+		border: 10px solid rgb(200, 200, 200);
+	}
+}
+@keyframes heading-ok {
+	from {
+		transform: scale(.6);
+		color: rgb(100,100,100);
+	}
+	to {
+		transform: scale(2);
+		color: rgb(25,25,25);
+	}
+}
 
 /* Footer */
 
 .footer {
 	width: 100%;
-	background-color: black;
+	background-color: rgb(25,25,25);
 	padding: 60px 20px 60px 20px;
 	display: flex;
 	justify-content: center;
 	box-sizing: border-box;
+	text-align: right;
+	margin-top: 60px;
 }
 .footer p {
 	font-family: NeueBit;
 	width: 100%;
 	text-transform: uppercase;
 	color: white;
+	font-size: 1.8rem;
 	max-width: 1000px;
-	line-height: .8em;
+	line-height: 1.4rem;
 	padding: 0;
 	margin: 0;
 }
 .return {
 	background-color: white;
-	color: black;
+	color: rgb(25,25,25);
+	border-radius: 20px;
+	padding: 20px 20px 18px 20px;
+	transition: .2s;
+	border: 2px solid white;
 }
 .return:hover {
-	background-color:black;
-	color:white;
+	background-color: rgb(25,25,25);
+	color: white;
 }
