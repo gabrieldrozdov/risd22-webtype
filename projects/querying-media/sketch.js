@@ -14,6 +14,10 @@ function setup() {
       cells[r][c] = random(100);
     }
   }
+
+  if (windowWidth < 800) {
+    resizeCanvas(windowWidth-40, 400);
+  }
 }
 
 function draw() {
@@ -76,4 +80,8 @@ function draw() {
 
 function windowResized() {
   resizeCanvas(windowWidth/2 - 40, windowHeight - 80);
+
+  if (windowWidth < 800) {
+    resizeCanvas(windowWidth-40, 400);
+  }
 }
