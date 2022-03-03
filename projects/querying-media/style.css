@@ -277,7 +277,7 @@ a{
 	position: relative;
 }
 .bodyimg {
-	background-color: #E5E5E5;
+	background-color: white;
 	padding: 10px;
 	grid-column: 1;
 	display: flex;
