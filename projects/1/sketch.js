@@ -24,7 +24,7 @@ function draw() {
       mouseY > 0 && mouseY < height) {
     const mouseR = floor(rows * (mouseY / height));
     const mouseC = floor(columns * (mouseX / width));
-    cells[mouseR][mouseC] = 100;
+    cells[mouseR][mouseC] = 255;
   }
 
   cells[5][1] = 205;
