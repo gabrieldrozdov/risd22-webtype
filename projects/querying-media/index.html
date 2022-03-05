@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gabriel Drozdov / Web Type / Project 1</title>
+  <link rel="icon" type="image/x-icon" href="imgs/favicon.png">
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
 </head>
@@ -24,23 +25,23 @@
     <section class="bodysection" id="intro">
       <div class="bodycontent">
         <p>
-          Font files today are typically stored in one of two formats: <span class="keyterm">.otf<span class="keytermdef">OpenType</span></span> and <span class="keyterm">.ttf<span class="keytermdef">TrueType</span></span>. What are these file formats? What kind of information is inside of them?
+          Font files today are typically stored in one of two formats: <a href="#keyterm-otf" id="keytermlink-otf"><span class="keyterm">.otf<span class="keytermdef">OpenType</span></span></a> and <a href="#keyterm-ttf" id="keytermlink-ttf"><span class="keyterm">.ttf<span class="keytermdef">TrueType</span></span></a>. What are these file formats? What kind of information is inside of them?
         </p>
         <p>
-          First, it’s helpful to look at how all files are stored and read by computers. Underneath all digital data is the language of <span class="keyterm">binary code<span class="keytermdef">The language of computers, represented in 1s and 0s</span></span>. This is a series of 1s and 0s that computers can understand to mean certain things. For instance, a <span class="keyterm">byte<span class="keytermdef">An arrangement of eight 0s or 1s</span></span>, or eight consecutive <span class="keyterm">bits<span class="keytermdef">One 1 or 0 in a byte</span></span><span class="keytermdef">, can translate to a number that corresponds to a letter. <span class="keyterm">ASCII<span class="keytermdef">American Standard Code for Information Interchange</span></span> is one of the standardized ways to make this conversion, where <span class="keyterm">01000001<span class="keytermdef">65 in decimal</span></span> translates to “A”. Several bytes in a row can therefore make up a word, a sentence, and so on. Or, a byte can tell a computer which pixel to target on a screen, and then the following bytes can designate what red, green, and blue values that pixel should light up to. In programs like Photoshop, each of these <span class="keyterm">RGB<span class="keytermdef">Red, green, blue</span></span> values are limited to the range of 0–255, and the reason is because of binary—a byte can only store up to a value that fits into eight bits, so 2^8=256. If you pay attention, you’ll notice powers of two popping up all over the place in software hinting at what’s happening underneath the surface.
+          First, it’s helpful to look at how all files are stored and read by computers. Underneath all digital data is the language of <a href="#keyterm-binary" id="keytermlink-binary"><span class="keyterm">binary code<span class="keytermdef">The language of computers, represented in 1s and 0s</span></span></a>. This is a series of 1s and 0s that computers can understand to mean certain things. For instance, a <a href="#keyterm-byte" id="keytermlink-byte"><span class="keyterm">byte<span class="keytermdef">An arrangement of eight 0s or 1s</span></span></a>, or eight consecutive <a href="#keyterm-bit" id="keytermlink-bit"><span class="keyterm">bits<span class="keytermdef">One 0 or 1</span></span></a>, can translate to a number that corresponds to a letter. <a href="#keyterm-ascii" id="keytermlink-ascii"><span class="keyterm">ASCII<span class="keytermdef">American Standard Code for Information Interchange</span></span></a> is one of the standardized ways to make this conversion, where <a href="#keyterm-binexample" id="keytermlink-binexample"><span class="keyterm">01000001<span class="keytermdef">65 in decimal</span></span></a> translates to “A”. Several bytes in a row can therefore make up a word, a sentence, and so on. Or, a byte can tell a computer which pixel to target on a screen, and then the following bytes can designate what red, green, and blue values that pixel should light up to. In programs like Photoshop, each of these <a href="#keyterm-rgb" id="keytermlink-rgb"><span class="keyterm">RGB<span class="keytermdef">Red, green, blue</span></span></a> values are limited to the range of 0–255, and the reason is because of binary—a byte can only store up to a value that fits into eight bits, so 2^8=256. If you pay attention, you’ll notice powers of two popping up all over the place in software hinting at what’s happening underneath the surface.
         </p>
         <p>
-          All files are therefore <span class="keyterm">encoded<span class="keytermdef">Convert something into a coded form like binary</span></span> in binary, and the keys to <span class="keyterm">decoding<span class="keytermdef">Take something out of its coded form</span></span> this data are file extensions, or more broadly <span class="keyterm">file formats<span class="keytermdef">Like JPG images, or PDF files</span></span>. File formats are the standardized ways we organize binary code to mean certain things. Take what I said earlier about encoding text, where ASCII is one of the standardized ways to make a conversion from a byte to a letter. Similarly, computers need to know which standard to use when reading a file, which is indicated by the <span class="keyterm">file extension<span class="keytermdef">e.g. ”.jpg” or ”.pdf”</span></span>. When a file has this signifier, a program can know exactly how that file is organized and what different sections of the binary contained within indicate.
+          All files are therefore <a href="#keyterm-encode" id="keytermlink-encode"><span class="keyterm">encoded<span class="keytermdef">Convert something into a coded form like binary</span></span></a> in binary, and the keys to <a href="#keyterm-decode" id="keytermlink-decode"><span class="keyterm">decoding<span class="keytermdef">Take something out of its coded form</span></span></a> this data are file extensions, or more broadly <a href="#keyterm-fileformat" id="keytermlink-fileformat"><span class="keyterm">file formats<span class="keytermdef">Like JPG images, or PDF files</span></span></a>. File formats are the standardized ways we organize binary code to mean certain things. Take what I said earlier about encoding text, where ASCII is one of the standardized ways to make a conversion from a byte to a letter. Similarly, computers need to know which standard to use when reading a file, which is indicated by the <a href="#keyterm-fileextension" id="keytermlink-fileextension"><span class="keyterm">file extension<span class="keytermdef">e.g. ”.jpg” or ”.pdf”</span></span></a>. When a file has this signifier, a program can know exactly how that file is organized and what different sections of the binary contained within indicate.
         </p>
         <p>
-          If we now look at the documentation of how .otf and .ttf file formats organize binary, we can start to see how modern fonts work as well as learn a little history about how these file formats came to be. To start, the .otf <span class="keyterm">specification<span class="keytermdef">Documentation on how the binary in a file is organized</span></span> lives on Microsoft’s website.<a href="#ref1" class="reference">1</a> Meanwhile, the .ttf specification lives on Apple’s website.<a href="#ref2" class="reference">2</a> This is our first glimpse at why there are two file formats and not just one—each was developed by a different company to fit specific needs, as well as to (at least initially) compete against the other. That being said, technological developments are historically very collaborative, at least in the sharing of information. In fact, the .otf format was originally built on .ttf! Now, it’s usually in the mutual interests of Apple and Microsoft (as well as Adobe and Google) to more formally collaborate on these specifications and make sure both .ttf and .otf serve typographers and users equally.
+          If we now look at the documentation of how .otf and .ttf file formats organize binary, we can start to see how modern fonts work as well as learn a little history about how these file formats came to be. To start, the .otf <a href="#keyterm-specification" id="keytermlink-specification"><span class="keyterm">specification<span class="keytermdef">Documentation on how the binary in a file is organized</span></span></a> lives on Microsoft’s website.<a href="#ref1" class="reference">1</a> Meanwhile, the .ttf specification lives on Apple’s website.<a href="#ref2" class="reference">2</a> This is our first glimpse at why there are two file formats and not just one—each was developed by a different company to fit specific needs, as well as to (at least initially) compete against the other. That being said, technological developments are historically very collaborative, at least in the sharing of information. In fact, the .otf format was originally built on .ttf! Now, it’s usually in the mutual interests of Apple and Microsoft (as well as Adobe and Google) to more formally collaborate on these specifications and make sure both .ttf and .otf serve typographers and users equally.
         </p>
         <div class="reftxt">
-          <a href="https://docs.microsoft.com/en-us/typography/opentype/spec/" target="_blank" class="reftxt-item" id="ref1">
+          <a href="https://docs.microsoft.com/en-us/typography/opentype/spec/" target="_blank" class="reftxt-item">
             <div><strong>1</strong></div>
             <div>Microsoft’s OpenType specification.</div>
           </a>
-          <a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/" target="_blank" class="reftxt-item" id="ref2">
+          <a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/" target="_blank" class="reftxt-item">
             <div><strong>2</strong></div>
             <div>Apple’s TrueType specification.</div>
           </a>
@@ -49,7 +50,7 @@
     </section>
 
     <div class="sectionhead-container">
-      <div class="sectionhead">
+      <div class="sectionhead" id="sectionhead1">
         <h3>What’s inside a font?</h3>
       </div>
     </div>
@@ -63,13 +64,13 @@
           We’ll first look at .ttf files, mainly because Apple’s documentation helps explain how digital fonts are more generally stored (and the text is overall much easier to read).<a href="#ref3" class="reference">3</a>
         </p>
         <div class="reftxt">
-          <a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM01/Chap1.html" target="_blank" class="reftxt-item" id="ref3">
+          <a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM01/Chap1.html" target="_blank" class="reftxt-item">
             <div><strong>3</strong></div>
             <div>Apple’s documentation on digitizing letterform designs.</div>
           </a>
         </div>
         <p>
-          Much like <span class="keyterm">vector<span class="keytermdef">Digital images made of points and lines instead of pixels</span></span> illustrations in apps like Adobe Illustrator, fonts are stored as <span class="keyterm">bezier curves<span class="keytermdef">A calculated curve between two points</span></span>. This means that the outline of a letter is actually an equation made up of points and curves that connect those points. A generic form of this equation looks like the following:
+          Much like <a href="#keyterm-vector" id="keytermlink-vector"><span class="keyterm">vector illustrations<span class="keytermdef">Digital images made of points and lines instead of pixels</span></span></a> in apps like Adobe Illustrator, fonts are stored as <a href="#keyterm-bezier" id="keytermlink-bezier"><span class="keyterm">bezier curves<span class="keytermdef">A calculated curve between two points</span></span></a>. This means that the outline of a letter is actually an equation made up of points and curves that connect those points. A generic form of this equation looks like the following:
         </p>
         <p>
           p(t) = (1-t)2p0 + 2t(1-t)p1 + t2p2
@@ -81,24 +82,24 @@
           <em>Visualization of a bezier curve.</em>
         </figcaption>
         <p>
-          This equation is the atomic unit for a font—all greater complexity comes from making more points and curves, but not much else. You can do things like intersect the contours made by a bezier curve, or combine <span class="keyterm">glyphs<span class="keytermdef">i.e. letters, numbers, symbols, or other characters</span></span> to make a new glyph, but the basic unit is still the mathematical equation from before. Furthermore, this mathematical equation is then converted from our number system to binary, and that information is stored in the .ttf (or .otf) file.
+          This equation is the atomic unit for a font—all greater complexity comes from making more points and curves, but not much else. You can do things like intersect the contours made by a bezier curve, or combine <a href="#keyterm-glyph" id="keytermlink-glyph"><span class="keyterm">glyphs<span class="keytermdef">Letters, numbers, symbols, or other characters</span></span></a> to make a new glyph, but the basic unit is still the mathematical equation from before. Furthermore, this mathematical equation is then converted from our number system to binary, and that information is stored in the .ttf (or .otf) file.
         </p>
         <p>
-          The contours of a font, as well as its other properties like its glyph names or <span class="keyterm">metrics<span class="keytermdef"></span></span> (i.e. measurements), are subsequently stored in <span class="keyterm">font tables<span class="keytermdef">How binary is organized in font files</span></span>. Font tables are the ways in which .otf and .ttf binary is organized such that your computer can tell which byte means what. In addition to these tables, both file formats also contain a <span class="keyterm">table directory<span class="keytermdef">Lists the locations of font tables in the binary</span></span> that lives at the beginning of the binary code and includes fundamental information about what the font file contains, such as how many font tables there are.
+          The contours of a font, as well as its other properties like its glyph names or <a href="#keyterm-metrics" id="keytermlink-metrics"><span class="keyterm">metrics<span class="keytermdef">Measurements, such as height or width</span></span></a>, are subsequently stored in <a href="#keyterm-fonttable" id="keytermlink-fonttable"><span class="keyterm">font tables<span class="keytermdef">How binary is organized in font files</span></span></a>. Font tables are the ways in which .otf and .ttf binary is organized such that your computer can tell which byte means what. In addition to these tables, both file formats also contain a <a href="#keyterm-tabledirectory" id="keytermlink-tabledirectory"><span class="keyterm">table directory<span class="keytermdef">Lists the locations of font tables in the binary</span></span></a> that lives at the beginning of the binary code and includes fundamental information about what the font file contains, such as how many font tables there are.
         </p>
         <p>
-          Besides the contours of a glyph, font tables also provide positional information of how a computer screen should interpret said contours. These properties include details like the minimum and maximum coordinates of the glyph, as well as the glyph’s <span class="keyterm">style<span class="keytermdef">e.g. bold, italic, underlined, etc.</span></span>. These specific properties are stored in the “head” of a .otf font table,<a href="#ref4" class="reference">4</a> but there are actually tens of table types that allow for different functionality. For instance, the .otf file specification allows for a “COLR” table entry that supports multi-colored glyphs.<a href="#ref5" class="reference">5</a> Recently, variable fonts have become more widely supported across websites and applications, and the information for a variable font’s contours are stored in the “fvar” table entry, also known as the Font Variations Table.<a href="#ref6" class="reference">6</a>
+          Besides the contours of a glyph, font tables also provide positional information of how a computer screen should interpret said contours. These properties include details like the minimum and maximum coordinates of the glyph, as well as the glyph’s <a href="#keyterm-style" id="keytermlink-style"><span class="keyterm">style<span class="keytermdef">Bold, italic, underlined, etc.</span></span></a>. These specific properties are stored in the “head” of a .otf font table,<a href="#ref4" class="reference">4</a> but there are actually tens of table types that allow for different functionality. For instance, the .otf file specification allows for a “COLR” table entry that supports multi-colored glyphs.<a href="#ref5" class="reference">5</a> Recently, variable fonts have become more widely supported across websites and applications, and the information for a variable font’s contours are stored in the “fvar” table entry, also known as the Font Variations Table.<a href="#ref6" class="reference">6</a>
         </p>
         <div class="reftxt">
-          <a href="https://docs.microsoft.com/en-us/typography/opentype/spec/head" target="_blank" class="reftxt-item" id="ref4">
+          <a href="https://docs.microsoft.com/en-us/typography/opentype/spec/head" target="_blank" class="reftxt-item">
             <div><strong>4</strong></div>
             <div>Font header table specification for OpenType files.</div>
           </a>
-          <a href="https://docs.microsoft.com/en-us/typography/opentype/spec/colr" target="_blank" class="reftxt-item" id="ref5">
+          <a href="https://docs.microsoft.com/en-us/typography/opentype/spec/colr" target="_blank" class="reftxt-item">
             <div><strong>5</strong></div>
             <div>Color table specification for OpenType files.</div>
           </a>
-          <a href="https://docs.microsoft.com/en-us/typography/opentype/spec/fvar" target="_blank" class="reftxt-item" id="ref6">
+          <a href="https://docs.microsoft.com/en-us/typography/opentype/spec/fvar" target="_blank" class="reftxt-item">
             <div><strong>6</strong></div>
             <div>Variable font specification for OpenType files.</div>
           </a>
@@ -107,7 +108,7 @@
     </section>
 
     <div class="sectionhead-container">
-      <div class="sectionhead">
+      <div class="sectionhead" id="sectionhead2">
         <h3>From binary to what?</h3>
       </div>
     </div>
@@ -118,14 +119,14 @@
           <strong>How does a computer make this font code visible to us?</strong>
         </p>
         <p>
-          The challenge of rendering fonts on a pixel screen, also known as <span class="keyterm">rasterizing<span class="keytermdef">Converting from points and curves to pixels</span></span> them, is particularly tricky. This is because fonts are encoded as outlines, not as pixels—a computer has to calculate which pixels are within the bounds of a glyph’s contour, and then decide whether to turn it on, off, or some fraction in between. This process is called <span class="keyterm">instructing<span class="keytermdef">Formal name for rasterizing fonts</span></span> or <span class="keyterm">hinting<span class="keytermdef">Another name for rasterizing fonts</span></span> glyphs and exists in both the .otf and .ttf file formats.<a href="#ref4" class="reference">7</a><a href="#ref8" class="reference">8</a> For .ttf files, the process is called <span class="keyterm">grid-fitting<span class="keytermdef">Finding the best pixels to render a font with</span></span>. Poor instructing could lead to a letter that looks wrong, whether it is totally illegible or has weird artifacts or distortions on its edges. Instruction was especially important on early computer screens, when the density of pixels per inch was much lower and could lead more often to unintelligible text. An example of an early font with excessive hinting instructions is Verdana, although much of this work can be accomplished automatically now.
+          The challenge of rendering fonts on a pixel screen, also known as <a href="#keyterm-rasterize" id="keytermlink-rasterize"><span class="keyterm">rasterizing<span class="keytermdef">Converting from points and curves to pixels</span></span></a> them, is particularly tricky. This is because fonts are encoded as outlines, not as pixels—a computer has to calculate which pixels are within the bounds of a glyph’s contour, and then decide whether to turn it on, off, or some fraction in between. This process is called <a href="#keyterm-instruction" id="keytermlink-instruction"><span class="keyterm">instructing<span class="keytermdef">Formal name for rasterizing fonts</span></span></a> or <a href="#keyterm-hinting" id="keytermlink-hinting"><span class="keyterm">hinting<span class="keytermdef">Another name for rasterizing fonts</span></span></a> glyphs and exists in both the .otf and .ttf file formats.<a href="#ref4" class="reference">7</a><a href="#ref8" class="reference">8</a> For .ttf files, the process is called <a href="#keyterm-gridfitting" id="keytermlink-gridfitting"><span class="keyterm">grid-fitting<span class="keytermdef">Finding the best pixels to render a font with</span></span></a>. Poor instructing could lead to a letter that looks wrong, whether it is totally illegible or has weird artifacts or distortions on its edges. Instruction was especially important on early computer screens, when the density of pixels per inch was much lower and could lead more often to unintelligible text. An example of an early font with excessive hinting instructions is Verdana, although much of this work can be accomplished automatically now.
         </p>
         <div class="reftxt">
-          <a href="https://docs.microsoft.com/en-us/typography/opentype/spec/tt_instructing_glyphs" target="_blank" class="reftxt-item" id="ref7">
+          <a href="https://docs.microsoft.com/en-us/typography/opentype/spec/tt_instructing_glyphs" target="_blank" class="reftxt-item">
             <div><strong>7</strong></div>
             <div>Microsoft’s documentation on font instructing.</div>
           </a>
-          <a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM03/Chap3.html" target="_blank" class="reftxt-item" id="ref8">
+          <a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM03/Chap3.html" target="_blank" class="reftxt-item">
             <div><strong>8</strong></div>
             <div>Apple’s documentation on font instructing.</div>
           </a>
@@ -137,14 +138,14 @@
           <em>The challenges of grid-fitting on a digital screen.</em>
         </figcaption>
         <p>
-          Besides information stored within the font file, specific operating systems also make their own decisions about how to render fonts onscreen. Microsoft (author of the .otf specification) uses a tool called <span class="keyterm">ClearType<span class="keytermdef">Built-in Window’s tool for rendering fonts legibly</span></span> to render fonts on the Windows operating system.<a href="#ref9" class="reference">9</a> ClearType prioritizes legibility over 100% accuracy, making full use of a pixel’s RGB values to <span class="keyterm">antialias<span class="keytermdef">Smooth the edges</span></span> the text. This means that the edges of a glyph can be smoothed and exist somewhere between black and white. (If you’ve ever zoomed in really close on a computer, you might notice this phenomenon in the form of some color on the edges of glyphs.) Meanwhile, Apple (author of the .ttf specification) takes a much different approach on MacOS. Apple’s philosophy is based in accuracy, which means that as a font scales up, its growth is as expected without any alterations for the sake of legibility.<a href="#ref10" class="reference">10</a> Similarly to Microsoft though, Apple makes use of antialiasing with a “font smoothing” option on MacOS. In the long run, Apple’s approach has seen better results on contemporary computers with high pixel densities, while Microsoft’s approach has perhaps outlived its initial usefulness on low density screens and now results in inaccurate or aesthetically displeasing font rendering. (I should note that this last statement is an opinion!)
+          Besides information stored within the font file, specific operating systems also make their own decisions about how to render fonts onscreen. Microsoft (author of the .otf specification) uses a tool called <a href="#keyterm-cleartype" id="keytermlink-cleartype"><span class="keyterm">ClearType<span class="keytermdef">Built-in Window’s tool for rendering fonts legibly</span></span></a> to render fonts on the Windows operating system.<a href="#ref9" class="reference">9</a> ClearType prioritizes legibility over 100% accuracy, making full use of a pixel’s RGB values to <a href="#keyterm-antialias" id="keytermlink-antialias"><span class="keyterm">antialias<span class="keytermdef">Smooth the edges</span></span></a> the text. This means that the edges of a glyph can be smoothed and exist somewhere between black and white. (If you’ve ever zoomed in really close on a computer, you might notice this phenomenon in the form of some color on the edges of glyphs.) Meanwhile, Apple (author of the .ttf specification) takes a much different approach on MacOS. Apple’s philosophy is based in accuracy, which means that as a font scales up, its growth is as expected without any alterations for the sake of legibility.<a href="#ref10" class="reference">10</a> Similarly to Microsoft though, Apple makes use of antialiasing with a “font smoothing” option on MacOS. In the long run, Apple’s approach has seen better results on contemporary computers with high pixel densities, while Microsoft’s approach has perhaps outlived its initial usefulness on low density screens and now results in inaccurate or aesthetically displeasing font rendering. (I should note that this last statement is an opinion!)
         </p>
         <div class="reftxt">
-          <a href="https://docs.microsoft.com/en-us/typography/cleartype/" target="_blank" class="reftxt-item" id="ref9">
+          <a href="https://docs.microsoft.com/en-us/typography/cleartype/" target="_blank" class="reftxt-item">
             <div><strong>9</strong></div>
             <div>Overview of Microsoft ClearType.</div>
           </a>
-          <a href="https://damieng.com/blog/2007/06/13/font-rendering-philosophies-of-windows-and-mac-os-x/" target="_blank" class="reftxt-item" id="ref10">
+          <a href="https://damieng.com/blog/2007/06/13/font-rendering-philosophies-of-windows-and-mac-os-x/" target="_blank" class="reftxt-item">
             <div><strong>10</strong></div>
             <div>Comparison of font rendering on Windows and MacOS devices.</div>
           </a>
@@ -159,8 +160,8 @@
     </section>
 
     <div class="sectionhead-container">
-      <div class="sectionhead">
-        <h3>This is too complicated!</h3>
+      <div class="sectionhead" id="sectionhead3">
+        <h3>This is too much info!</h3>
       </div>
     </div>
 
@@ -179,15 +180,15 @@
           Lastly, the .otf and .ttf file formats are only two of many font formats that exist today, each for slightly different purposes. Web fonts are generally stored as .woff files,<a href="#ref11" class="reference">11</a> which has already evolved into the .woff2 format.<a href="#ref12" class="reference">12</a> Meanwhile, there are variations on the .otf and .ttf formats such as the .otc and .ttc formats, which allow for a collection of multiple fonts within a single file. At the same time, programs can discontinue support for font formats, which is currently happening with Adobe dropping support for an early format called PostScript Type 1 fonts in 2023.<a href="#ref13" class="reference">13</a> Anyone can technically develop their own font format by creating a specification for how file’s binary is organized. The challenge there, as with all data, is having software that can actually understand it. Otherwise, the information is as lost as a dead language.
         </p>
         <div class="reftxt">
-          <a href="https://www.w3.org/TR/WOFF/" target="_blank" class="reftxt-item" id="ref11">
+          <a href="https://www.w3.org/TR/WOFF/" target="_blank" class="reftxt-item">
             <div><strong>11</strong></div>
             <div>Specification for .woff files.</div>
           </a>
-          <a href="https://www.w3.org/TR/WOFF2/" target="_blank" class="reftxt-item" id="ref12">
+          <a href="https://www.w3.org/TR/WOFF2/" target="_blank" class="reftxt-item">
             <div><strong>12</strong></div>
             <div>Specification for .woff2 files.</div>
           </a>
-          <a href="https://helpx.adobe.com/fonts/kb/postscript-type-1-fonts-end-of-support.html" target="_blank" class="reftxt-item" id="ref13">
+          <a href="https://helpx.adobe.com/fonts/kb/postscript-type-1-fonts-end-of-support.html" target="_blank" class="reftxt-item">
             <div><strong>13</strong></div>
             <div>Adobe’s statement on retiring Type 1 fonts.</div>
           </a>
@@ -196,19 +197,177 @@
     </section>
   </div>
 
-  <section class="bodysection" id="keyterms" style="border-top:2px solid rgb(50,50,50);margin-top:60px">
-    <div class="index">
+  <section class="bodysection" id="index">
+    <div class="index" id="keyterms">
       <div class="index-title">
         <h3>Key Terms</h3>
       </div>
+      <p class="index-desc"><em>Click to see where the term is used in the article!</em></p>
       <div class="index-items index-keyterms">
-        <a id="" href="">
+        <a id="keyterm-otf" href="#keytermlink-otf">
           <span class="index-keyterm-title">.otf</span><br>
           <span class="index-keyterm-info">The OpenType format.</span>
         </a>
-        <a id="" href="">
+        <a id="keyterm-ttf" href="#keytermlink-ttf">
           <span class="index-keyterm-title">.ttf</span><br>
           <span class="index-keyterm-info">The TrueType format.</span>
+        </a>
+        <a id="keyterm-binary" href="#keytermlink-binary">
+          <span class="index-keyterm-title">Binary Code</span><br>
+          <span class="index-keyterm-info">The language of computers, represented in 1s and 0s.</span>
+        </a>
+        <a id="keyterm-byte" href="#keytermlink-byte">
+          <span class="index-keyterm-title">Byte</span><br>
+          <span class="index-keyterm-info">An arrangement of eight 0s or 1s.</span>
+        </a>
+        <a id="keyterm-bit" href="#keytermlink-bit">
+          <span class="index-keyterm-title">Bit</span><br>
+          <span class="index-keyterm-info">One 0 or 1. Eight in a row make up a byte.</span>
+        </a>
+        <a id="keyterm-ascii" href="#keytermlink-ascii">
+          <span class="index-keyterm-title">ASCII</span><br>
+          <span class="index-keyterm-info">American Standard Code for Information Interchange, used for converting binary numbers to letters and other characters.</span>
+        </a>
+        <a id="keyterm-binexample" href="#keytermlink-binexample">
+          <span class="index-keyterm-title">01000001</span><br>
+          <span class="index-keyterm-info">Binary number that is equivalent to 65 in hexadecimal and translates to “A” in ASCII.</span>
+        </a>
+        <a id="keyterm-rgb" href="#keytermlink-rgb">
+          <span class="index-keyterm-title">RGB</span><br>
+          <span class="index-keyterm-info">Red, green, blue.</span>
+        </a>
+        <a id="keyterm-encode" href="#keytermlink-encode">
+          <span class="index-keyterm-title">Encode</span><br>
+          <span class="index-keyterm-info">Convert something into a coded form like binary.</span>
+        </a>
+        <a id="keyterm-decode" href="#keytermlink-decode">
+          <span class="index-keyterm-title">Decode</span><br>
+          <span class="index-keyterm-info">Take something out of its coded form.</span>
+        </a>
+        <a id="keyterm-fileformat" href="#keytermlink-fileformat">
+          <span class="index-keyterm-title">File Format</span><br>
+          <span class="index-keyterm-info">An encoding of binary to represent something, like an image with JPEG files or a document with PDF files.</span>
+        </a>
+        <a id="keyterm-fileextension" href="#keytermlink-fileextension">
+          <span class="index-keyterm-title">File Extension</span><br>
+          <span class="index-keyterm-info">The text that signifies a file’s format, like “.JPG” or “.PDF”.</span>
+        </a>
+        <a id="keyterm-specification" href="#keytermlink-specification">
+          <span class="index-keyterm-title">Specification</span><br>
+          <span class="index-keyterm-info">Documentation on how the binary in a file is organized.</span>
+        </a>
+        <a id="keyterm-vector" href="#keytermlink-vector">
+          <span class="index-keyterm-title">Vector Illustration</span><br>
+          <span class="index-keyterm-info">Digital images made of points and lines instead of pixels.</span>
+        </a>
+        <a id="keyterm-bezier" href="#keytermlink-bezier">
+          <span class="index-keyterm-title">Bezier Curve</span><br>
+          <span class="index-keyterm-info">A calculated curve between two points.</span>
+        </a>
+        <a id="keyterm-glyph" href="#keytermlink-glyph">
+          <span class="index-keyterm-title">Glyph</span><br>
+          <span class="index-keyterm-info">A letter, number, symbol, or other character.</span>
+        </a>
+        <a id="keyterm-metrics" href="#keytermlink-metrics">
+          <span class="index-keyterm-title">Metric</span><br>
+          <span class="index-keyterm-info">A measurement, such as height or width.</span>
+        </a>
+        <a id="keyterm-fonttable" href="#keytermlink-fonttable">
+          <span class="index-keyterm-title">Font Table</span><br>
+          <span class="index-keyterm-info">The way binary is organized in font files (i.e. <em>into</em> font tables).</span>
+        </a>
+        <a id="keyterm-tabledirectory" href="#keytermlink-tabledirectory">
+          <span class="index-keyterm-title">Table Directory</span><br>
+          <span class="index-keyterm-info">Lists the locations of font tables in the binary code for a font file.</span>
+        </a>
+        <a id="keyterm-style" href="#keytermlink-style">
+          <span class="index-keyterm-title">Style</span><br>
+          <span class="index-keyterm-info">Bold, italic, underlined, etc.</span>
+        </a>
+        <a id="keyterm-rasterize" href="#keytermlink-rasterize">
+          <span class="index-keyterm-title">Rasterize</span><br>
+          <span class="index-keyterm-info">Convert from points and curves to pixels.</span>
+        </a>
+        <a id="keyterm-instruction" href="#keytermlink-instruction">
+          <span class="index-keyterm-title">Font Instruction</span><br>
+          <span class="index-keyterm-info">The formal name for rasterizing fonts.</span>
+        </a>
+        <a id="keyterm-hinting" href="#keytermlink-hinting">
+          <span class="index-keyterm-title">Font Hinting</span><br>
+          <span class="index-keyterm-info">Another name for font instruction.</span>
+        </a>
+        <a id="keyterm-gridfitting" href="#keytermlink-gridfitting">
+          <span class="index-keyterm-title">Grid-fitting</span><br>
+          <span class="index-keyterm-info">Finding the best pixels to render a font with.</span>
+        </a>
+        <a id="keyterm-cleartype" href="#keytermlink-cleartype">
+          <span class="index-keyterm-title">ClearType</span><br>
+          <span class="index-keyterm-info">The built-in Windows tool for rendering fonts legibly.</span>
+        </a>
+        <a id="keyterm-antialias" href="#keytermlink-antialias">
+          <span class="index-keyterm-title">Antialias</span><br>
+          <span class="index-keyterm-info">Smooth the edges of something, like a jagged pixel border.</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="index" id="references">
+      <div class="index-title">
+        <h3>References</h3>
+      </div>
+      <p class="index-desc"><em>Click to see the original source!</em></p>
+      <div class="index-items index-references">
+        <a id="ref1" href="https://docs.microsoft.com/en-us/typography/opentype/spec/" target="_blank">
+          <div class="index-reference-title">1</div>
+          <div class="index-reference-info">Microsoft’s OpenType specification.</div>
+        </a>
+        <a id="ref2" href="https://developer.apple.com/fonts/TrueType-Reference-Manual/" target="_blank">
+          <div class="index-reference-title">2</div>
+          <div class="index-keyterm-info">Apple’s TrueType specification.</div>
+        </a>
+        <a id="ref3" href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM01/Chap1.html" target="_blank">
+          <div class="index-reference-title">3</div>
+          <div class="index-reference-info">Apple’s documentation on digitizing letterform designs.</div>
+        </a>
+        <a id="ref4" href="https://docs.microsoft.com/en-us/typography/opentype/spec/head" target="_blank">
+          <div class="index-reference-title">4</div>
+          <div class="index-reference-info">Font header table specification for OpenType files.</div>
+        </a>
+        <a id="ref5" href="https://docs.microsoft.com/en-us/typography/opentype/spec/colr" target="_blank">
+          <div class="index-reference-title">5</div>
+          <div class="index-reference-info">Color table specification for OpenType files.</div>
+        </a>
+        <a id="ref6" href="https://docs.microsoft.com/en-us/typography/opentype/spec/fvar" target="_blank">
+          <div class="index-reference-title">6</div>
+          <div class="index-reference-info">Variable font specification for OpenType files.</div>
+        </a>
+        <a id="ref7" href="https://docs.microsoft.com/en-us/typography/opentype/spec/tt_instructing_glyphs" target="_blank">
+          <div class="index-reference-title">7</div>
+          <div class="index-reference-info">Microsoft’s documentation on font instructing.</div>
+        </a>
+        <a id="ref8" href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM03/Chap3.html" target="_blank">
+          <div class="index-reference-title">8</div>
+          <div class="index-reference-info">Apple’s documentation on font instructing.</div>
+        </a>
+        <a id="ref9" href="https://docs.microsoft.com/en-us/typography/cleartype/" target="_blank">
+          <div class="index-reference-title">9</div>
+          <div class="index-reference-info">Overview of Microsoft ClearType.</div>
+        </a>
+        <a id="ref10" href="https://damieng.com/blog/2007/06/13/font-rendering-philosophies-of-windows-and-mac-os-x/" target="_blank">
+          <div class="index-reference-title">10</div>
+          <div class="index-reference-info">Comparison of font rendering on Windows and MacOS devices.</div>
+        </a>
+        <a id="ref11" href="https://www.w3.org/TR/WOFF/" target="_blank">
+          <div class="index-reference-title">11</div>
+          <div class="index-reference-info">Specification for .woff files.</div>
+        </a>
+        <a id="ref12" href="https://www.w3.org/TR/WOFF2/" target="_blank">
+          <div class="index-reference-title">12</div>
+          <div class="index-reference-info">Specification for .woff2 files.</div>
+        </a>
+        <a id="ref13" href="https://helpx.adobe.com/fonts/kb/postscript-type-1-fonts-end-of-support.html" target="_blank">
+          <div class="index-reference-title">13</div>
+          <div class="index-reference-info">Adobe’s statement on retiring Type 1 fonts.</div>
         </a>
       </div>
     </div>
@@ -216,15 +375,16 @@
 
   <footer class="footer">
     <p>
-      <strong>Colophon:</strong><br>
-      NeueBit by Pangram Pangram<br>
-      Basis Grotesque by Colophon Foundry<br>
+      <strong>Colophon</strong><br>
+      <em>NeueBit</em> by <a class="footer-link" href="https://pangrampangram.com/products/bitmap-fonts" target="_blank">Pangram Pangram</a><br>
+      <em>Basis Grotesque</em> by <a class="footer-link" href="https://www.colophon-foundry.org/typefaces/basis-grotesque/" target="_blank">Colophon Foundry</a><br>
       <br>
-      <strong>Text, design, development:</strong><br>
-      Gabriel Drozdov<br>
+      <strong>Text, design, development</strong><br>
+      <a class="footer-link" href="https://www.gabrieldrozdov.com/" target="_blank">Gabriel Drozdov</a><br>
       <br>
-      Created for Web Type taught by Marie Otsuka at RISD<br>
-      <br><br>
+      Created for <em>Web Type</em> taught by Marie Otsuka at RISD<br>
+      <a class="footer-link" href="../../">Return to project hub</a>
+      <br><br><br>
       <a href="#top" class="return"><strong>&uarr;&nbsp;&nbsp;Return to top&nbsp;&nbsp;&uarr;</strong></a>
     </p>
   </footer>

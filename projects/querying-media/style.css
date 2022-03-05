@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* Fonts */
@@ -106,6 +107,19 @@ a{
 	padding: 0;
 	margin: 0;
 	color: rgb(25,25,25);
+	animation-name: header-title;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+@keyframes header-title {
+	from {
+		transform: translateY(-1rem);
+	}
+	to {
+		transform: translateY(0rem);
+	}
 }
 .header-title h2 {
 	padding: 0;
@@ -141,6 +155,7 @@ a{
   border-bottom: 1px solid rgb(25,25,25);
   cursor: pointer;
   line-height: 1.5rem;
+  color: rgb(25,25,25);
 }
 .keyterm:hover {
   animation-name: keyterm-glow;
@@ -312,73 +327,144 @@ a{
 	text-align: center;
 	flex-direction: column;
 	box-sizing: border-box;
-	background-color: white;
+	background-color: rgb(50,50,50);
 	border-radius: 20px;
 }
 .sectionhead {
   border-radius: 20px;
   max-width: 1200px;
   width: 100%;
-  border: 10px solid rgb(240, 240, 240);
-  color: rgb(25,25,25);
+  border: 5px solid rgb(200,200,200);
+  color: white;
   padding: 55px 20px 40px 20px;
-  animation-name: heading-ok-container;
   animation-duration: 1.2s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
-  animation-delay: -250ms;
 }
 .sectionhead h3 {
 	font-size: 18rem;
 	line-height: 12rem;
-  animation-name: heading-ok;
   animation-duration: 1.2s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
 }
-@keyframes heading-ok-container {
+#sectionhead1 {
+  animation-name: sectionhead1;
+	transform: scale(.7) rotate(0);
+  animation-delay: -250ms;
+}
+#sectionhead1 h3{
+  animation-name: sectionhead1-txt;
+}
+@keyframes sectionhead1 {
+	from {
+		transform: scale(.7) rotate(5deg);
+	}
+	to {
+		transform: scale(.7) rotate(-5deg);
+	}
+}
+@keyframes sectionhead1-txt {
+	from {
+		transform: scale(.7) rotate(5deg);
+	}
+	to {
+		transform: scale(.7) rotate(-5deg);
+	}
+}
+#sectionhead2 {
+  animation-name: sectionhead2;
+	transform: scale(.8);
+  animation-delay: -250ms;
+}
+#sectionhead2 h3{
+  animation-name: sectionhead2-txt;
+  color: rgb(50,50,50);
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+@keyframes sectionhead2 {
+	from {
+		border: 5px solid white;
+		margin: 0;
+		transform: scale(.7);
+	}
+	to {
+		border: 1px solid white;
+		margin: 4px;
+		transform: scale(.8);
+	}
+}
+@keyframes sectionhead2-txt {
+	from {
+		transform: scale(.8);
+		color: rgba(255,255,255);
+	}
+	to {
+		transform: scale(.85);
+		color: rgb(50,50,50);
+	}
+}
+#sectionhead3 {
+  animation-name: sectionhead3;
+  animation-delay: -250ms;
+}
+#sectionhead3 h3{
+  animation-name: sectionhead3-txt;
+}
+@keyframes sectionhead3 {
 	from {
 		transform: scale(.3);
-		border: 10px solid rgb(240, 240, 240);
+		border: 10px solid rgb(50,50,50);
 	}
 	to {
 		transform: scale(.5);
-		border: 10px solid rgb(200, 200, 200);
+		border: 10px solid rgb(200,200,200);
 	}
 }
-@keyframes heading-ok {
+@keyframes sectionhead3-txt {
 	from {
 		transform: scale(.6);
-		color: rgb(100,100,100);
+		color: rgb(120,120,120);
 	}
 	to {
 		transform: scale(2);
-		color: rgb(25,25,25);
+		color: white;
 	}
 }
 
 /* Key term and reference index */
+
+#index {
+	background-color: white;
+	border-top: 2px solid rgb(50,50,50);
+	margin-top: 60px;
+	flex-direction: column;
+	align-items: center;
+}
 .index {
 	width: 100%;
 	max-width: 1000px;
-	margin: 20px;
+	margin: 60px 0 60px 0;
+	padding: 0 20px 0 20px;
+	box-sizing: border-box;
 }
 .index-title {
 	width: 100%;
-	background-color: white;
 	text-align: center;
 	border-radius: 20px;
 	padding: 25px 20px 20px 20px;
 	margin-bottom: 20px;
 	box-sizing: border-box;
-	text-transform: uppercase;
-	font-size: 4rem;
-	letter-spacing: 2px;
-	line-height: 4rem;
+  background-color: rgb(50,50,50);
+  color: white;
 }
 .index-title h3 {
+	text-transform: uppercase;
+	font-size: 2rem;
+	letter-spacing: 2px;
+	line-height: 2rem;
   animation-name: index-title;
   animation-duration: 1.2s;
   animation-iteration-count: infinite;
@@ -393,28 +479,32 @@ a{
 		transform: scale(1.4);
 	}
 }
+.index-desc {
+	text-align: center;
+	font-size: 1rem;
+	line-height: 1rem;
+	margin-bottom:20px;
+}
 .index-items {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: 20px;
 }
-.index-keyterms a{
+.index-keyterms a {
 	border-radius: 20px;
-	border: 2px solid rgb(50,50,50);
 	padding: 20px;
 	transition: .2s;
 	color: rgb(50,50,50);
+	background-color: rgb(240,240,240);
 	font-family: Basis;
 }
 .index-keyterms a:hover {
 	background-color: white;
 	color: rgb(50,50,50);
-	border: 2px solid white;
 }
-.index-keyterms a:active {
+.index-keyterms a:focus {
 	background-color: rgb(50,50,50);
 	color: white;
-	border: 2px solid rgb(50,50,50);
 }
 .index-keyterm-title {
 	font-family: NeueBit;
@@ -423,30 +513,48 @@ a{
 	font-size: 1.8rem;
   padding-top: 4px;
   letter-spacing: 2px;
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
   line-height: 1.5rem;
+  display: inline-block;
   margin-bottom: 10px;
 }
 .index-keyterm-info {
 	font-size: 1rem;
-	line-height: 2rem;
 	margin: 0;
 	line-height: 1rem;
+}
+.index-references a {
+	border-radius: 20px;
+	padding: 20px;
+	transition: .2s;
+	color: rgb(50,50,50);
+	background-color: rgb(240,240,240);
+	font-family: Basis;
+	font-size: 1rem;
+	display: grid;
+	grid-template-columns: .2fr 1fr;
+}
+.index-references a:hover {
+	background-color: white;
+	color: rgb(50,50,50);
+}
+.index-references a:focus {
+	background-color: rgb(50,50,50);
+	color: white;
+}
+.index-reference-title {
+	font-weight: bold;
 }
 
 /* Footer */
 
 .footer {
 	width: 100%;
-	background-color: rgb(25,25,25);
+	background-color: rgb(50,50,50);
 	padding: 60px 20px 60px 20px;
 	display: flex;
 	justify-content: center;
 	box-sizing: border-box;
 	text-align: right;
-	margin-top: 60px;
 }
 .footer p {
 	font-family: NeueBit;
@@ -455,20 +563,32 @@ a{
 	color: white;
 	font-size: 1.8rem;
 	max-width: 1000px;
-	line-height: 1.4rem;
+	line-height: 1.8rem;
 	padding: 0;
 	margin: 0;
 }
+.footer-link {
+	border-bottom: 1px solid white;
+	color: white;
+	padding-bottom: 2px;
+	transition: .2s;
+}
+.footer-link:hover {
+	opacity: .8;
+}
+.footer-link:active {
+	opacity: .5;
+}
 .return {
 	background-color: white;
-	color: rgb(25,25,25);
+	color: rgb(50,50,50);
 	border-radius: 20px;
 	padding: 20px 20px 18px 20px;
 	transition: .2s;
 	border: 2px solid white;
 }
 .return:hover {
-	background-color: rgb(25,25,25);
+	background-color: rgb(50,50,50);
 	color: white;
 }
 .return:active {
@@ -510,11 +630,17 @@ a{
   	font-size: 1.2rem;
   	line-height: 1.8rem;
   }
+  .keytermdef {
+  	display: none;
+  }
   .reference {
   	font-size: .7rem;
 		width: 1.2rem;
 		height: 1.2rem;
 		line-height: 1.3rem;
+  }
+  .reftxt {
+  	display: none;
   }
   .sectionhead-container {
 		padding: 10px;
@@ -522,29 +648,50 @@ a{
 		text-align: center;
 		flex-direction: column;
 		box-sizing: border-box;
-		background-color: white;
 		border-radius: 20px;
 		width: calc(100vw - 20px);
 	}
 	.sectionhead {
-	  padding: 35px 10px 20px 10px;
+	  padding: 25px 10px 20px 10px;
 	}
 	.sectionhead h3 {
 		font-size: 4rem;
 		line-height: 4rem;
 	}
+	#index {
+		padding: 60px 0 60px 0;
+	}
+	.index {
+		margin: 20px 0 20px 0;
+	}
+	.index-title h3{
+		font-size: 1.3rem;
+	}
+	.index-items {
+		grid-template-columns: 1fr;
+		grid-gap: 10px;
+	}
+	.index-keyterm-title {
+		font-size: 1.3rem;
+	  padding-top: 4px;
+	  line-height: 1.2rem;
+	}
+	.index-references a {
+		grid-template-columns: .1fr 1fr;
+	}
 	.footer {
 		padding: 60px 20px 60px 20px;
+		text-align: center;
 	}
 	.footer p {
 		font-size: 1.3rem;
 		max-width: 1000px;
-		line-height: 1.2rem;
+		line-height: 1.3rem;
+	}
+	.footer-link {
+		padding-bottom: 1px;
 	}
 	.return {
 		padding: 10px 20px 8px 20px;
-	}
-	#keyterms {
-		display: none;
 	}
 } 
