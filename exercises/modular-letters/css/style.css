@@ -1,0 +1,22 @@
+@font-face {
+	font-family: "Web Type Exercise 3";
+	src: url("fonts/WebTypeExercise3.woff2") format("woff2");
+	font-weight: normal;
+}
+body {
+	font-family: "Web Type Exercise 3", sans-serif;
+	font-size: 8rem;
+	text-transform: lowercase;
+	line-height: 8rem;
+	margin: 0;
+}
+a {
+	color: #1449f2;
+	transition: .2s;
+}
+a:hover {
+	color: #f61d5d;
+}
+a:active {
+	color: #22f494;
+}
