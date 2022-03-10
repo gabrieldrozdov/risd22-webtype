@@ -7,8 +7,8 @@
   <title>Querying Media / .otf, .ttf</title>
   <meta name="description" content="A brief rundown of the .otf and .ttf font formats.">
   <meta name="author" content="Gabriel Drozdov">
-  <link rel="icon" type="image/x-icon" href="imgs/favicon.png">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="icon" type="image/x-icon" href="assets/imgs/favicon.png">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
 </head>
 
@@ -33,11 +33,11 @@
           First, it’s helpful to look at how all files are stored and read by computers. Underneath all digital data is the language of <a href="#keyterm-binary" id="keytermlink-binary"><span class="keyterm">binary code<span class="keytermdef">The language of computers, represented in 1s and 0s</span></span></a>. This is a series of 1s and 0s that computers can understand to mean certain things. For instance, a <a href="#keyterm-byte" id="keytermlink-byte"><span class="keyterm">byte<span class="keytermdef">An arrangement of eight 0s or 1s</span></span></a>, or eight consecutive <a href="#keyterm-bit" id="keytermlink-bit"><span class="keyterm">bits<span class="keytermdef">One 0 or 1</span></span></a>, can translate to a number that corresponds to a letter. <a href="#keyterm-ascii" id="keytermlink-ascii"><span class="keyterm">ASCII<span class="keytermdef">American Standard Code for Information Interchange</span></span></a> is one of the standardized ways to make this conversion, where <a href="#keyterm-binexample" id="keytermlink-binexample"><span class="keyterm">01000001<span class="keytermdef">65 in decimal</span></span></a> translates to “A”. Several bytes in a row can therefore make up a word, a sentence, and so on. Or, a byte can tell a computer which pixel to target on a screen, and then the following bytes can designate what red, green, and blue values that pixel should light up to. In programs like Photoshop, each of these <a href="#keyterm-rgb" id="keytermlink-rgb"><span class="keyterm">RGB<span class="keytermdef">Red, green, blue</span></span></a> values are limited to the range of 0–255, and the reason is because of binary — a byte can only store up to a value that fits into eight bits, so 2<sup>8</sup>=256. If you pay attention, you’ll notice powers of two popping up all over the place in software hinting at what’s happening underneath the surface.
         </p>
         <div class="bodyimg">
-          <img src="imgs/binary.png">
+          <img src="assets/imgs/binary-alt.png">
         </div>
         <figcaption class="imgcap">
           <span class="imgcap-desc">A breakdown of how to convert from binary to decimal.</span><br>
-          Source: <a href="http://www.c-jump.com/bcc/common/Talk2/Cxx/BitByteHexASCII/BitByteHexASCII.html" target="_blank">Bristol Community College</a>
+          Source: <a href="http://www.c-jump.com/bcc/common/Talk2/Cxx/BitByteHexASCII/BitByteHexASCII.html" target="_blank">Bristol Community College</a> [image modified]
         </figcaption>
         <p>
           All files are therefore <a href="#keyterm-encode" id="keytermlink-encode"><span class="keyterm">encoded<span class="keytermdef">Convert something into a coded form like binary</span></span></a> in binary, and the keys to <a href="#keyterm-decode" id="keytermlink-decode"><span class="keyterm">decoding<span class="keytermdef">Take something out of its coded form</span></span></a> this data are file extensions, or more broadly <a href="#keyterm-fileformat" id="keytermlink-fileformat"><span class="keyterm">file formats<span class="keytermdef">Like JPG images, or PDF files</span></span></a>. File formats are the standardized ways we organize binary code to mean certain things. Take what I said earlier about encoding text, where ASCII is one of the standardized ways to make a conversion from a byte to a letter. Similarly, computers need to know which standard to use when reading a file, which is indicated by the <a href="#keyterm-fileextension" id="keytermlink-fileextension"><span class="keyterm">file extension<span class="keytermdef">e.g. ”.jpg” or ”.pdf”</span></span></a>. When a file has this signifier, a program can know exactly how that file is organized and what different sections of the binary contained within indicate.
@@ -60,7 +60,7 @@
           </a>
         </div>
         <div class="bodyimg">
-          <img src="imgs/specification.jpg">
+          <img src="assets/imgs/specification.jpg">
         </div>
         <figcaption class="imgcap">
           <span class="imgcap-desc">A specification is just documentation on how the binary in a file is organized.</span><br>
@@ -99,7 +99,7 @@
           p(t) = (1-t)2p<sub>0</sub> + 2t(1-t)p<sub>1</sub> + t2p<sub>2</sub>
         </p>
         <div class="bodyimg">
-          <img src="imgs/bezier.png">
+          <img src="assets/imgs/bezier.png">
         </div>
         <figcaption class="imgcap">
           <span class="imgcap-desc">Visualization of a bezier curve constructed from three points.</span><br>
@@ -109,7 +109,7 @@
           This equation is the atomic unit for a font — all greater complexity comes from making more points and curves, but not much else. You can do things like intersect the contours made by a bezier curve, or combine <a href="#keyterm-glyph" id="keytermlink-glyph"><span class="keyterm">glyphs<span class="keytermdef">Letters, numbers, symbols, or other characters</span></span></a> to make a new glyph, but the basic unit is still the mathematical equation from before. Furthermore, this mathematical equation is then converted from our number system to binary, and that information is stored in the .ttf (or .otf) file.
         </p>
         <div class="bodyimg">
-          <img src="imgs/contours.png">
+          <img src="assets/imgs/contours.png">
         </div>
         <figcaption class="imgcap">
           <span class="imgcap-desc">Bezier curves creating three separate contours that depict the capital letter “B”.</span><br>
@@ -167,7 +167,7 @@
           </a>
         </div>
         <div class="bodyimg">
-          <img src="imgs/instructing.png">
+          <img src="assets/imgs/instructing.png">
         </div>
         <figcaption class="imgcap">
           <span class="imgcap-desc">The challenges of grid-fitting on a digital screen.</span><br>
@@ -177,7 +177,7 @@
           Besides information stored within the font file, specific operating systems also make their own decisions about how to render fonts onscreen. Microsoft (author of the OpenType specification) uses a tool called <a href="#keyterm-cleartype" id="keytermlink-cleartype"><span class="keyterm">ClearType<span class="keytermdef">Built-in Window’s tool for rendering fonts legibly</span></span></a> to render fonts on the Windows operating system.<a href="#ref11" class="reference">11</a> ClearType prioritizes legibility over 100% accuracy, making full use of a pixel’s RGB values to <a href="#keyterm-antialias" id="keytermlink-antialias"><span class="keyterm">antialias<span class="keytermdef">Smooth the edges</span></span></a> the text.
         </p>
         <div class="bodyimg">
-          <img src="imgs/antialias.png">
+          <img src="assets/imgs/antialias.png">
         </div>
         <figcaption class="imgcap">
           <span class="imgcap-desc">An aliased curve [left] versus an antialiased curve [right].</span><br>
@@ -197,7 +197,7 @@
           </a>
         </div>
         <div class="bodyimg">
-          <img src="imgs/font-scaling.png">
+          <img src="assets/imgs/font-scaling.png">
         </div>
         <figcaption class="imgcap">
           <span class="imgcap-desc">Font rendering on a Windows computer [left] versus a MacOS computer [right].</span><br>
@@ -224,7 +224,7 @@
           Some mathematical principles are fundamental to typography, like bezier curves, while others are good to know for purposes of using fonts, like hinting. An understanding of binary also helps contextualize why certain values cap at 255, or how various components or properties are organized. It is important to note though that these technologies, as well as their corresponding specifications, are not natural laws — they are continuously evolving and only as good as the software that understands them. Variable fonts and color fonts are recent explorations into what a typeface can be, and who knows what the future holds. Perhaps at some point a font file will contain a singular glyph and the remaining characters will be generated by an AI algorithm. Who knows!
         </p>
         <div class="bodyimg">
-          <img src="imgs/variable.png">
+          <img src="assets/imgs/variable.png">
         </div>
         <figcaption class="imgcap">
           <span class="imgcap-desc">Variable fonts use “variable axes” to control parameters like width or weight.</span><br>
@@ -458,6 +458,6 @@
     </p>
   </footer>
   
-  <script src="sketch.js"></script>
+  <script src="assets/sketch.js"></script>
 </body>
 </html>

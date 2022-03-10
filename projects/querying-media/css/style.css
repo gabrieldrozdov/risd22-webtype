@@ -5,37 +5,37 @@ html {
 
 /* Fonts */
 
-@font-face{
+@font-face {
 	font-family: "NeueBit";
 	src: url("fonts/NeueBit-Regular.otf") format("opentype"),
 		 url("fonts/NeueBit-Regular.woff") format("woff"),
 		 url("fonts/NeueBit-Regular.woff2") format("woff2");
   font-weight: normal;
 }
-@font-face{
+@font-face {
 	font-family: "NeueBit";
 	src: url("fonts/NeueBit-Bold.otf") format("opentype"),
 		 url("fonts/NeueBit-Bold.woff") format("woff"),
 		 url("fonts/NeueBit-Bold.woff2") format("woff2");
   font-weight: bold;
 }
-@font-face{
+@font-face {
 	font-family: "Basis";
 	src: url("fonts/BasisGrotesquePro-Regular.otf") format("opentype");
   font-weight: normal;
 }
-@font-face{
+@font-face {
 	font-family: "Basis";
 	src: url("fonts/BasisGrotesquePro-Bold.otf") format("opentype");
   font-weight: bold;
 }
-@font-face{
+@font-face {
 	font-family: "Basis";
 	src: url("fonts/BasisGrotesquePro-Italic.otf") format("opentype");
   font-weight: normal;
   font-style: italic;
 }
-@font-face{
+@font-face {
 	font-family: "Basis";
 	src: url("fonts/BasisGrotesquePro-BoldItalic.otf") format("opentype");
   font-weight: bold;

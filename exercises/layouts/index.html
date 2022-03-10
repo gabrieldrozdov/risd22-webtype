@@ -8,7 +8,17 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <p style="text-align:center;"><a href="../../">Back to homepage</a><br><br>Layout 1</p>
+  <p style="text-align:center;margin-bottom:40px;border-bottom:1px solid #1449f2;padding-bottom:5px;" id="top">
+    <a href="../../" class="navlink">Web Type</a><br>
+    <a href="#layout1" class="navlink">Layout 1</a> //
+    <a href="#layout2" class="navlink">Layout 2</a> //
+    <a href="#layout3" class="navlink">Layout 3</a>
+  </p>
+
+  <h4 class="layout">
+    <a href="#layout1" class="navlink">Layout 1</a><br>
+    <a href="#top" class="navlink">Back to top</a>
+  </h4>
   <div class="container" id="layout1">
     <div class="content">
       <img src="assets/circle-of-fifths-scale-optimized.png" class="hero">
@@ -120,10 +130,13 @@
     </div>
   </div>
 
-  <p style="text-align:center;">Layout 2</p>
+  <h4 class="layout">
+    <a href="#layout2" class="navlink">Layout 2</a><br>
+    <a href="#top" class="navlink">Back to top</a>
+  </h4>
   <div class="container" id="layout2">
     <div class="contentgrid">
-      <div>
+      <div class="contentgrid-block">
         <div class="title">
           <h1>
             Seven Principles of Typographic Contrast
@@ -234,11 +247,14 @@
     </div>
   </div>
 
-  <p style="text-align:center;">Layout 3</p>
+  <h4 class="layout">
+    <a href="#layout3" class="navlink">Layout 3</a><br>
+    <a href="#top" class="navlink">Back to top</a>
+  </h4>
   <div class="container" id="layout3">
     <div class="contentgrid">
       <img src="assets/circle-of-fifths-scale-optimized.png" class="hero contentgrid-sticky">
-      <div>
+      <div class="contentgrid-block">
         <div class="title">
           <h1>
             Seven Principles of Typographic Contrast

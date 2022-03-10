@@ -1,71 +1,97 @@
+/* Fonts */
 
-*{
-	margin: 0;
-	box-sizing: border-box;
+@font-face {
+	font-family: "Authentic";
+	src: url("fonts/AUTHENTICSans-Condensed-60.woff") format("woff"),
+		 url("fonts/AUTHENTICSans-Condensed-60.woff2") format("woff2");
+  font-weight: normal;
+}
+@font-face {
+	font-family: "Authentic";
+	src: url("fonts/AUTHENTICSans-Condensed-150.woff") format("woff"),
+		 url("fonts/AUTHENTICSans-Condensed-150.woff2") format("woff2");
+  font-weight: bold;
 }
 
-body{
+/* Base styles */
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+body {
 	font-size: 20px;
-	font-family: gimlet-text, serif;
+	font-family: "Authentic", serif;
 	font-weight: 500;
 	font-style: normal;
 }
-
-h1{
+h1 {
 	font-size: 3rem;
 	margin: 40px 0 20px 0;
 }
-
-h2{
+h2 {
 	font-size: 1.5rem;
 	margin: 20px 0 20px 0;
 }
-
-h3{
+h3 {
 	margin: 40px 0 20px 0;
 }
-
 h4 {
 	margin: 20px 0 10px 0;
 	font-size: 1rem;
 }
-
-p{
+p {
 	margin: 10px 0 10px 0;
 	color: #35363a;
-	font-family: arial, serif;
 	font-size: 1rem;
 }
-
-ol{
+ol {
 	margin: 10px 0 10px 0;
 	font-size: 1rem;
-	font-family: arial, serif;
 	color: #35363a;
 }
 
-.container{
+/* Custom classes */
+
+.navlink {
+	color: #1449f2;
+	text-decoration: none;
+	font-size: 1rem;
+	text-transform: uppercase;
+	transition: .2s;
+}
+.navlink:hover {
+	color: #f61d5d;
+}
+.navlink:active {
+	color: #22f494;
+}
+.layout {
+	font-size: 2rem;
+	text-align: center;
+	line-height: 1rem;
+	margin: 0;
+}
+.container {
 	display: flex;
 	justify-content: center;
 }
-
-.content{
+.content {
 	width: 100%;
-	background-color: #f3f4f5;
+	border: 1px solid black;
+	border-radius: 10px;
 	padding: 20px;
 	max-width: 600px;
 	margin: 20px;
 }
-
-.hero{
+.hero {
 	width:100%;
 }
-
-.title{
+.title {
 	margin-bottom: 40px;
 }
-
-.contentgrid{
+.contentgrid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	margin: 20px;
@@ -73,28 +99,32 @@ ol{
 	width: 100%;
 	grid-gap: 40px;
 }
-
-.contentgrid div{
-	background-color: #f3f4f5;
+.contentgrid-block {
+	border: 1px solid black;
+	border-radius: 10px;
 	padding: 20px;
 }
-
-.contentgrid-sticky{
+.contentgrid-sticky {
 	position: sticky;
 	top: 20px;
 }
 
+/* Responsive styles */
+
 @media only screen and (max-width: 800px) {
-	.contentgrid{
+	* {
+		overflow-wrap: break-word;
+	}
+	.contentgrid {
 		grid-template-columns: 1fr;
 	}
-	.contentgrid img{
+	.contentgrid img {
 		grid-row-start: 1;
 	}
-	.contentgrid div{
+	.contentgrid div {
 		grid-row-start: 2;
 	}
-	.contentgrid-sticky{
+	.contentgrid-sticky {
 		position: unset;
 		top: 0;
 	}
