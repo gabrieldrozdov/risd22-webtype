@@ -1,3 +1,6 @@
+:root{
+	--FUNK: 0;
+}
 @font-face {
 	font-family: "Geometric Funk";
 	src: url("fonts/GeometricFunkVF.woff2") format("woff2");
@@ -6,6 +9,7 @@
 * {
 	font-family: "Geometric Funk", sans-serif;
 	text-transform: lowercase;
+	font-variation-settings: 'FUNK' var(--FUNK);
 }
 
 body {
@@ -27,20 +31,15 @@ a:active {
 }
 
 .bodycontent {
-	transition: 1s;
-	font-variation-settings: 'FUNK' 0;
 	transition-timing-function: ease-out;
 	padding-top: 200px;
 	font-size: 8rem;
 	line-height: 8rem;
 }
-.contentdarkmode {
-	font-variation-settings: 'FUNK' 100;
-}
 
-#darkmode {
+#slider {
 	border: 5px solid black;
-	font-size: 4rem;
+	font-size: 1.5rem;
 	border-radius: 50%;
 	background-color: white;
 	padding: 40px;
@@ -50,18 +49,10 @@ a:active {
 	transition-timing-function: ease;
 	font-variation-settings: 'FUNK' 0;
 }
-#darkmode:hover {
+#slider:hover {
 	color: white;
 	border: 5px solid white;
 	background-color: black;
-}
-#darkmode:active {
-	font-variation-settings: 'FUNK' 100;
-	transform: scale(.8);
-}
-.darkmode {
-	background-color: black;
-	color: white;
 }
 
 @media screen and (max-width: 1000px) { 
@@ -69,7 +60,7 @@ a:active {
 		font-size: 3rem;
 		line-height: 3rem;
 	}
-	#darkmode {
+	#slider {
 		font-size: 1.5rem;
 	}
 }
