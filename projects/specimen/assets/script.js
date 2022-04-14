@@ -38,4 +38,19 @@ $(document).ready(function(){
 
   });
 
+  setInterval(function() {
+    let randomfunk = randomNumber(0,100);
+    let randomprss = randomNumber(0,100);
+    
+    $(".words").css({
+      "--FUNK": randomfunk,
+      "--PRSS": randomprss
+    }); 
+  }, 1000);
+
 });
+
+// Function to generate random number 
+function randomNumber(min, max) { 
+    return Math.floor(Math.random() * (max - min) + min);
+}
