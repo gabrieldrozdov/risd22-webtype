@@ -19,7 +19,7 @@ $(document).ready(function(){
     
     });
 
-  $('.letter-slider').on('input', function(){
+  $('#letter-slider').on('input', function(){
 
     let value = parseInt($(this).val()); //get slider input value
     // console.log(value);
@@ -27,6 +27,14 @@ $(document).ready(function(){
     const slidertype = $(this).data('type'); //get slider axis
 
     $('.letter-glyph').text(String.fromCharCode(value));
+
+  });
+
+  $('#alphabet-slider').on('input', function(){
+
+    let value = parseInt($(this).val()); //get slider input value
+
+    $('.alphabet span').css("--PRSS", value);
 
   });
 
