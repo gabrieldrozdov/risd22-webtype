@@ -33,7 +33,7 @@ body {
 	box-sizing: content-box;
 	max-width: 100vw;
 	overflow-x: hidden;
-	background-color: #fffafa;
+	background-color: #ffdadb;
 	color: white;
 }
 
@@ -45,7 +45,8 @@ body {
 	align-items: center;
 	justify-content: center;
 	animation: header ease-in-out 5s infinite alternate;
-	color: #402f30;
+	color: white;
+	text-shadow: 2px 2px #f3f4f5, 4px 4px #d3d4d5;
 }
 .header-line {
 	line-height: 1em;
@@ -74,6 +75,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	box-shadow: 8px 8px white;
 }
 .alphabet {
 	cursor: crosshair;
@@ -111,6 +113,7 @@ body {
 	width: 100%;
 	background-color: #b6bde5;
 	box-sizing: border-box;
+	box-shadow: 8px 8px white;
 }
 .letter {
 	display: flex;
@@ -147,6 +150,7 @@ body {
 	text-align: center;
 	font-variation-settings: "FUNK" var(--FUNK), "PRSS" var(--PRSS);
 	transition: font-variation-settings 1s;
+	box-shadow: 8px 8px white;
 }
 
 /* Sliders */
