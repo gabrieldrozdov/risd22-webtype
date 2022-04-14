@@ -23,7 +23,10 @@ body {
 }
 
 .header {
-	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	animation: header ease-in-out 5s infinite alternate;
 }
 .header-line {
@@ -167,8 +170,9 @@ body {
 		font-size:60vw;
 	}
 	.slider {
-		max-width: 300px;
+		max-width: 80%;
 		height: 40px;
+		padding: 5px 10px 5px 10px;
 	}
 	.slider::-webkit-slider-thumb {
 		width: 10px;
