@@ -49,19 +49,22 @@ body {
 	text-align: center;
 	padding-bottom: 30px;
 }
-.alphabet-line {
+.alphabet-letters {
 	line-height: 1em;
 	margin: 0;
 	padding: 0;
 	font-size:13vw;
 }
-.alphabet-line span {
+.alphabet-letters span {
 	font-variation-settings: "FUNK" 0, "PRSS" var(--PRSS);
 	transition: font-variation-settings .2s, color .2s;
 }
-.alphabet-line span:hover {
+.alphabet-letters span:hover {
 	font-variation-settings: "FUNK" 100, "PRSS" var(--PRSS);
 	color: #402f30;
+}
+.alphabet-mobile {
+	display: none;
 }
 
 .letter-container {
@@ -91,6 +94,8 @@ body {
 .letter-glyph {
 	font-variation-settings: "FUNK" var(--FUNK), "PRSS" var(--PRSS);
 	pointer-events: none;
+	font-size:40vw;
+	line-height:1em;
 }
 .slider {
 	width: 100%;
@@ -146,22 +151,31 @@ body {
 	.alphabet-container {
 		border-radius: 50px;
 	}
-	.alphabet-line {
-		font-size:10vw;
+	.alphabet-letters {
+		font-size:14vw;
+	}
+	.alphabet-desktop {
+		display: none;
+	}
+	.alphabet-mobile {
+		display: block;
 	}
 	.letter-container {
 		border-radius: 50px;
 	}
+	.letter-glyph {
+		font-size:60vw;
+	}
 	.slider {
 		max-width: 300px;
-		height: 10px;
+		height: 40px;
 	}
 	.slider::-webkit-slider-thumb {
-		width: 15px;
-		height: 15px;
+		width: 10px;
+		height: 30px;
 	}
 	.slider::-moz-range-thumb {
-		width: 15px;
-		height: 15px;
+		width: 10px;
+		height: 30px;
 	}
 }
