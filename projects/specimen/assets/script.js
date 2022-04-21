@@ -1,4 +1,6 @@
-$(document).ready(function(){
+$(document).ready(function(){\
+
+  /* Letter Hover */
 
   $('.letter').mousemove(function(event) {
 
@@ -19,6 +21,8 @@ $(document).ready(function(){
     
     });
 
+  /* Letter Slider */
+
   $('#letter-slider').on('input', function(){
 
     let value = parseInt($(this).val()); //get slider input value
@@ -29,6 +33,8 @@ $(document).ready(function(){
 
   });
 
+  /* Alphabet Slider */
+
   $('#alphabet-slider').on('input', function(){
 
     let value = parseInt($(this).val()); //get slider input value
@@ -36,6 +42,8 @@ $(document).ready(function(){
     $('.alphabet span').css("--STCH", value);
 
   });
+
+  /* Randomize Word Parameters */
   
   var para = $('#words');
   var charArray = $('span', para);
@@ -72,6 +80,8 @@ $(document).ready(function(){
         });
     }
   }, 1000);
+
+  /* Tester Sliders */
 
   $('#tester-slider1').on('input', function(){
 
