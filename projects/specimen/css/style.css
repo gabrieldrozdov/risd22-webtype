@@ -27,13 +27,16 @@
 	--FLAV: 0;
 }
 body {
+	background-color: #ffe375;
+}
+.content {
 	font-family: "Mini Mochi", sans-serif;
 	margin: 20px;
 	padding: 40px;
 	box-sizing: content-box;
 	max-width: 100vw;
 	overflow-x: hidden;
-	background-color: #fd8d8d;
+	background-color: #f3f4f5;
 	color: white;
 	font-size: 24px;
 	line-height: 1.3em;
@@ -49,7 +52,7 @@ body {
 	grid-gap: 20px;
 	margin-top: 20px;
 	font-family: "Apfel", sans-serif;
-	color: #fd8d8d;
+	color: #a3a4a5;
 }
 .block {
 	border-radius: 100px;
@@ -130,8 +133,8 @@ body {
 	padding: 5px 0 5px 0;
     box-shadow: inset 10px 10px 10px rgba(255,255,255,.2), inset -10px -10px 10px rgba(0,0,0,.1);
     border-radius: 25px;
-    background-color: #fd8d8d;
-    color: white;
+    background-color: #c8aaf3;
+    color: #64557a;
 }
 .overview-sideaxis {
 	position: absolute;
@@ -143,8 +146,8 @@ body {
     transform-origin: 0 0;
     box-shadow: inset -10px 10px 10px rgba(255,255,255,.2), inset 10px -10px 10px rgba(0,0,0,.1);
     border-radius: 25px;
-    background-color: #fd8d8d;
-    color: white;
+    background-color: #ffe375;
+    color: #80723b;
 }
 
 /* Alphabet */
@@ -159,6 +162,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	background-color: #fd8d8d;
 	transition: border-radius .5s;
     box-shadow: inset 10px 10px 10px rgba(255,255,255,.2), inset -10px -10px 10px rgba(0,0,0,.1);
 }
@@ -191,6 +195,7 @@ body {
 /* Letter */
 
 .letter-container {
+	background-color: #aed982;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -217,7 +222,7 @@ body {
 	padding-bottom: 10px;
 }
 .letter:hover {
-	color: #bd5454;
+	color: #576d41;
 }
 .letter-glyph {
 	font-variation-settings: "STCH" var(--STCH), "FLAV" var(--FLAV);
@@ -230,6 +235,8 @@ body {
 
 .words-container {
 	grid-column: 1 / span 2;
+	background-color: #82b9d9;
+	color: white;
 }
 #words {
 	grid-column: 1 /  span 2;
@@ -256,6 +263,8 @@ body {
 	margin-top: 20px;
 	border-radius: 100px;
 	width: 100%;
+	color: white;
+	background-color: #c8aaf3;
 	box-sizing: border-box;
 	transition: border-radius .5s;
     box-shadow: inset 10px 10px 10px rgba(255,255,255,.2), inset -10px -10px 10px rgba(0,0,0,.1);
@@ -287,22 +296,22 @@ body {
 	grid-column: span 2;
 	text-decoration: none;
 	color: white;
-	background-color: #fd8d8d;
+	background-color: #a3a4a5;
 	border: 2px solid white;
 	font-size: 8vw;
 	line-height: 1em;
 	padding: 80px 40px 80px 40px;
 	font-variation-settings: "STCH" 50, "FLAV" 0;
-	transition: background-color .2s, color .2s, opacity .2s, font-variation-settings .2s, border-radius .5s;
+	transition: background-color .2s, color .2s, opacity .2s, font-variation-settings .2s, border-radius .2s;
 }
 .download:hover {
 	font-variation-settings: "STCH" 100, "FLAV" 100;
-    color: #fd8d8d;
-    background-color: white;
+    color: #f3f4f5;
 }
 .download:active {
 	font-variation-settings: "STCH" 0, "FLAV" 0;
-    background-color: #bd5454;
+    background-color: #737475;
+    color: #939495;
     border-radius: 50px;
 }
 
@@ -314,14 +323,14 @@ footer {
 	display: flex;
 	justify-content: center;
 	padding-top: 40px;
-	color: #bd5454;
+	color: #a3a4a5;
 }
 footer p {
 	max-width: 500px;
 	width: 100%;
 }
 footer a {
-	color: #bd5454;
+	color: #a3a4a5;
 	transition: opacity .2s;
 }
 footer a:hover {

@@ -73,7 +73,7 @@ $(document).ready(function(){
     for (var i=0; i<8; i++) {
         var pos = Math.floor(Math.random()*charArray.length);
         pos = pos % paralen;
-        charArray[pos].style.color = '#bd5454';
+        charArray[pos].style.color = '#415d6d';
         $(charArray[pos]).css({
           "--STCH": Math.floor(Math.random() * 101),
           "--FLAV": Math.floor(Math.random() * 101)
