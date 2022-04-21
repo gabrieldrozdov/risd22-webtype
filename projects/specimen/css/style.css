@@ -319,7 +319,7 @@ body {
 	line-height: 1em;
 	padding: 80px 40px 80px 40px;
 	font-variation-settings: "STCH" 50, "FLAV" 0;
-	transition: background-color .2s, color .2s, opacity .2s, font-variation-settings .2s, border-radius .2s;
+	transition: background-color .2s, color .2s, opacity .2s, font-variation-settings .2s, border-radius .2s, transform .5s;
 }
 .download:hover {
 	font-variation-settings: "STCH" 100, "FLAV" 100;
@@ -330,6 +330,7 @@ body {
     background-color: #737475;
     color: #939495;
     border-radius: 50px;
+    transform: scale(.9);
 }
 
 /* Footer */
