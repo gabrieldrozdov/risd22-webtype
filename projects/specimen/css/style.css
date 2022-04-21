@@ -107,7 +107,7 @@ body {
     cursor: crosshair;
 }
 .header-line span:hover {
-	color: rgba(0,0,0,.5);
+	color: rgba(0,0,0,.3);
 	transform: scale(.8);
 }
 @keyframes header {
@@ -203,7 +203,7 @@ body {
 }
 .alphabet-letters span:hover {
 	font-variation-settings: "STCH" var(--STCH), "FLAV" 100;
-	color: #bd5454;
+	color: rgba(0,0,0,.3);
 }
 .alphabet-mobile {
 	display: none;
@@ -239,7 +239,7 @@ body {
 	padding-bottom: 10px;
 }
 .letter:hover {
-	color: #576d41;
+	color: rgba(0,0,0,.3);
 }
 .letter-glyph {
 	font-variation-settings: "STCH" var(--STCH), "FLAV" var(--FLAV);
@@ -323,14 +323,13 @@ body {
 }
 .download:hover {
 	font-variation-settings: "STCH" 100, "FLAV" 100;
-    color: #f3f4f5;
+    color: rgba(0,0,0,.1);
 }
 .download:active {
 	font-variation-settings: "STCH" 0, "FLAV" 0;
     background-color: #737475;
-    color: #939495;
-    border-radius: 50px;
     transform: scale(.9);
+    color: rgba(0,0,0,.3);
 }
 
 /* Footer */
@@ -509,9 +508,6 @@ footer a:active {
 	}
 	.download:hover {
 		border-radius: 75px;
-	}
-	.download:active {
-		border-radius: 25px;
 	}
 	footer {
 		padding-top: 20px;
