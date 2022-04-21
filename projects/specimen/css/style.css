@@ -402,6 +402,9 @@ footer a:active {
 /* Responsive Styles */
 
 @media screen and (max-width: 1000px) {
+	body {
+		padding: 5px;
+	}
 	.content {
 		font-size: 24px;
 		line-height: 1.5em;
