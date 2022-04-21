@@ -13,8 +13,8 @@ $(document).ready(function(){
       let settingY = Math.floor(cursorY * 100);
 
       $(".letter-glyph").css({
-        "--FUNK": settingX,
-        "--PRSS": settingY
+        "--FLAV": settingX,
+        "--STCH": settingY
       });
     
     });
@@ -22,7 +22,6 @@ $(document).ready(function(){
   $('#letter-slider').on('input', function(){
 
     let value = parseInt($(this).val()); //get slider input value
-    // console.log(value);
 
     const slidertype = $(this).data('type'); //get slider axis
 
@@ -34,23 +33,60 @@ $(document).ready(function(){
 
     let value = parseInt($(this).val()); //get slider input value
 
-    $('.alphabet span').css("--PRSS", value);
+    $('.alphabet span').css("--STCH", value);
+
+  });
+  
+  var para = $('#words');
+  var charArray = $('span', para);
+  
+  // case: No span (Initial String)
+  if (charArray.length === 0) {
+      var html = para.html();
+      var newArr = [];
+      var len = html.length;
+      for (var i=0; i<len; i++) {
+          newArr.push('<span>' + html[i] + '</span>');
+      }
+      html = newArr.join('');
+      para.html(html);
+      charArray = $('span', para);
+  }
+
+  setInterval(function() {
+    
+    // Reset all spans
+    $.each(charArray, function(i, value) {
+        value.style.color = '';
+    });
+    
+    var paralen = charArray.length;
+    
+    for (var i=0; i<8; i++) {
+        var pos = Math.floor(Math.random()*charArray.length);
+        pos = pos % paralen;
+        charArray[pos].style.color = '#bd5454';
+        $(charArray[pos]).css({
+          "--STCH": Math.floor(Math.random() * 101),
+          "--FLAV": Math.floor(Math.random() * 101)
+        });
+    }
+  }, 1000);
+
+  $('#tester-slider1').on('input', function(){
+
+    let value = parseInt($(this).val()); //get slider input value
+
+    $('.tester').css("--STCH", value);
 
   });
 
-  setInterval(function() {
-    let randomfunk = randomNumber(0,100);
-    let randomprss = randomNumber(0,100);
-    
-    $(".words").css({
-      "--FUNK": randomfunk,
-      "--PRSS": randomprss
-    }); 
-  }, 1000);
+  $('#tester-slider2').on('input', function(){
+
+    let value = parseInt($(this).val()); //get slider input value
+
+    $('.tester').css("--FLAV", value);
+
+  });
 
 });
-
-// Function to generate random number 
-function randomNumber(min, max) { 
-    return Math.floor(Math.random() * (max - min) + min);
-}
