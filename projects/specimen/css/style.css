@@ -88,7 +88,7 @@ body {
 	color: white;
 }
 .header-line {
-	font-size: 13vw;
+	font-size: 14vw;
 	line-height: 1em;
 	margin: 0;
 	padding: 0;
@@ -97,9 +97,9 @@ body {
     box-shadow: inset 10px 10px 10px rgba(255,255,255,.2), inset -10px -10px 10px rgba(0,0,0,.1);
     border-radius: 10px;
     background-color: white;
-    padding: 10px;
+    padding: 5px;
     margin: 2px;
-    transition: border-radius .5s;
+    transition: transform .5s, color .5s;
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -107,7 +107,8 @@ body {
     cursor: crosshair;
 }
 .header-line span:hover {
-	border-radius: 50px;
+	color: rgba(0,0,0,.5);
+	transform: scale(.8);
 }
 @keyframes header {
 	0% {font-variation-settings: "STCH" 50, "FLAV" 0;}
@@ -439,6 +440,9 @@ footer a:active {
 	}
 	.block p {
 		max-width: 100%;
+	}
+	.header-line {
+		font-size: 10vw;
 	}
 	.header-line span {
 		border-radius: 10px;
