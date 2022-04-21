@@ -447,6 +447,7 @@ footer a:active {
 	}
 	.header-line span {
 		border-radius: 10px;
+		padding: 5px;
 	}
 	.overview-line {
 		font-size: 15vw;
