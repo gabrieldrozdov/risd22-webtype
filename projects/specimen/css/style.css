@@ -88,17 +88,17 @@ body {
 	color: white;
 }
 .header-line {
-	font-size: 14vw;
+	font-size: 10vw;
 	line-height: 1em;
 	margin: 0;
 	padding: 0;
 }
 .header-line span {
     box-shadow: inset 10px 10px 10px rgba(255,255,255,.2), inset -10px -10px 10px rgba(0,0,0,.1);
-    border-radius: 10px;
+    border-radius: 50px;
     background-color: white;
-    padding: 5px 5px 0px 5px;
-    margin: 2px;
+    padding: 20px;
+    margin: 5px;
     transition: transform .5s, color .5s;
     display: inline-flex;
     flex-direction: row;
@@ -323,13 +323,13 @@ body {
 }
 .download:hover {
 	font-variation-settings: "STCH" 100, "FLAV" 100;
-    color: rgba(0,0,0,.1);
+    color: rgba(255,255,255,.8);
 }
 .download:active {
 	font-variation-settings: "STCH" 0, "FLAV" 0;
     background-color: #737475;
     transform: scale(.9);
-    color: rgba(0,0,0,.3);
+    color: rgba(255,255,255,.5);
 }
 
 /* Footer */
@@ -445,8 +445,8 @@ footer a:active {
 		font-size: 10vw;
 	}
 	.header-line span {
-		border-radius: 10px;
-		padding: 5px;
+		border-radius: 25px;
+		padding: 10px 10px 8px 10px;
 	}
 	.overview-line {
 		font-size: 15vw;
