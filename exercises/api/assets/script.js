@@ -6,7 +6,7 @@ $(document).ready(function(){
   console.log(location);
   $('#location').text(location);
 
-  $.getJSON('https://api.openweathermap.org/data/2.5/weather?q='+"location"+'&appid=a0be2ca7d3101a5b3e8a3bbf580143f6&units=imperial', function(data) {
+  $.getJSON('https://api.openweathermap.org/data/2.5/weather?q='+location+'&appid=a0be2ca7d3101a5b3e8a3bbf580143f6&units=imperial', function(data) {
       console.log(data);
 
       let feels = data["main"]["feels_like"]
