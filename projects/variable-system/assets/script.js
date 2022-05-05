@@ -1,11 +1,6 @@
-/* Parallax */
-var scene = document.getElementById('scene');
-var parallax = new Parallax(scene);
-
-
 /* Background color */
 var t = new Date().getHours();
-const daylightColors = ["#311f62","#422865","#523167","#633a6a","#74436d","#844c70","#955472","#a55d75","#b66678","#c76f7b","#d7787d","#e88180","#e88180","#d7787d","#c76f7b","#b66678","#a55d75","#955472","#844c70","#74436d","#633a6a","#523167","#422865","#311f62"];
+const daylightColors = ["#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22"];
 for (let i = 0; i < 24; i++) {
     if (t == i) {
         document.body.style.backgroundColor = daylightColors[i];
@@ -13,13 +8,7 @@ for (let i = 0; i < 24; i++) {
     }    
 }
 
-var intervalId = window.setInterval(function(){
-  /// call your function here
-}, 2000);
-
-
 /* Tick tock */
-
 const secondHand = document.querySelector(".second-hand");
 const minsHand = document.querySelector(".min-hand");
 const hourHand = document.querySelector(".hour-hand");
@@ -61,3 +50,20 @@ const synth = new Tone.Synth().toDestination();
 $(".big-grid div").mouseenter(function() {
   synth.triggerAttackRelease("C4", "8n");
 });
+
+/* Generate spaces */
+function addCode() {
+    var depth = (Math.random() * (0.5 - 7.0) + 7.0).toFixed(2);
+    var transX = String(Math.random() * 300 * (Math.round(Math.random()) ? 1 : -1));
+    var transY = String(Math.random() * 200 * (Math.round(Math.random()) ? 1 : -1));
+    document.getElementById("scene").innerHTML += 
+      "<div class='space' data-depth="+depth+"><a href='#''><div class='space-position' style='transform:translate("+transX+"vw,"+transY+"vh)'><div class='space-content'><h2>THIS ___ IS OPEN</h2></div></div></a></div>";
+    console.log(depth, transX, transY);
+}
+for (let i = 0; i < 100; i++) {
+    addCode();
+}
+
+/* Initiate parallax */
+var scene = document.getElementById('scene');
+var parallax = new Parallax(scene);

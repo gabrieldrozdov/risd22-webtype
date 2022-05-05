@@ -35,11 +35,9 @@ body {
     font-family: "Authentic", sans-serif;
     padding: 0;
     margin: 0;
-    color: white;
-}
-a {
-	text-decoration:none;
-	color:white;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 h2 {
 	letter-spacing: -1px;
@@ -50,15 +48,26 @@ h2 {
 /* Clock and UI */
 .ui {
 	position: fixed;
-	width: calc(100vw - 40px);
-	height: calc(100vh - 40px);
-	margin: 20px;
-	border: 1px solid black;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	z-index: -1;
+	border: 10px solid white;
+}
+.border {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
 .clock {
 	width: calc(50vmax - 80px);
@@ -67,62 +76,36 @@ h2 {
 	border: 1px solid black;
 	position: relative;
 	padding: 2rem;
+	background-color: white;
 }
 .hand {
-  width: 50%;
-  right: 50%;
-  height: 1px;
-  background: black;
-  position: absolute;
-  top: 50%;
-  border-radius: 6px;
-  transform-origin: 100%;
-  transform: rotate(90deg);
-  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+	width: 50%;
+	right: 50%;
+	height: 1px;
+	background: black;
+	position: absolute;
+	top: 50%;
+	border-radius: 6px;
+	transform-origin: 100%;
+	transform: rotate(90deg);
+	transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
 }
 .hand.hour-hand {
-  width: 30%;
-  z-index: 3;
+	width: 20%;
+	z-index: 3;
 }
 .hand.min-hand {
-  z-index: 10;
-  width: 40%;
+	z-index: 10;
+	width: 35%;
 }
 .hand.second-hand {
-  width: 45%;
+	width: 45%;
+	background-color: #ffca22;
 }
-
-/* Old grid code */
-.big-grid {
-	display: grid;
-	grid-template-columns: repeat(10, 1fr);
-	grid-template-rows: repeat(10, 1fr);
-	grid-gap: 100px;
-	padding: 120px;
-}
-.big-grid div {
-	width: 500px;
-	padding: 20px;
-	border: 1px solid white;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	transition: .2s;
-	cursor: crosshair;
-}
-.big-grid div:hover {
-	color: black;
-	border: 1px solid black;
-	transform: scale(1.2);
-}
-
 
 /* Parallax grid */
-#scene{
-}
-.pos1 {
-	position: ;
+#scene {
+	position: relative;
 }
 .space {
 	position: absolute;
@@ -134,26 +117,38 @@ h2 {
 	margin: 5px;
 	min-width: 300px;
 	min-height: 300px;
+	width: 300px;
+	z-index: 2;
 }
 .space a {
+	color: black;
+	text-decoration: none;
+}
+.space a:hover{
+}
+.space-position:hover {
+	z-index: 10;
+
+}
+.space-content {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	border: 1px solid white;
+	border: 1px solid black;
 	padding: 20px;
 	transition: .2s linear;
 	min-width: 300px;
 	min-height: 300px;
-	border-radius: 50%;
+	z-index: 2;
 }
-.space a:hover {
+.space-content:hover {
+	transform:scale(1.5);
+	z-index: 10;
 	background-color: white;
 	color: black;
-	border-radius: 0;
 	border: 1px solid black;
-	transform: scale(1.2);
 }
 
 /* Responsive Styles */
