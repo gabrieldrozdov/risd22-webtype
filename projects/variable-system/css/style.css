@@ -1,0 +1,162 @@
+/* Base Styles */
+
+@font-face {
+	font-family: "Authentic";
+	src: url("fonts/AUTHENTICSans-60.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Authentic";
+	src: url("fonts/AUTHENTICSans-150.woff2") format("woff2");
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Authentic Condensed";
+	src: url("fonts/AUTHENTICSans-Condensed-60.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Authentic Condensed";
+	src: url("fonts/AUTHENTICSans-Condensed-150.woff2") format("woff2");
+	font-weight: bold;
+	font-style: normal;
+}
+
+
+* {
+	box-sizing:border-box;
+}
+
+body {
+    transition: background-color 2s;
+    font-family: "Authentic", sans-serif;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+a {
+	text-decoration:none;
+	color:white;
+}
+h2 {
+	letter-spacing: -1px;
+	font-weight: normal;
+	font-size: 20px;
+}
+
+/* Clock and UI */
+.ui {
+	position: fixed;
+	width: calc(100vw - 40px);
+	height: calc(100vh - 40px);
+	margin: 20px;
+	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	z-index: -1;
+}
+.clock {
+	width: calc(50vmax - 80px);
+	height: calc(50vmax - 80px);
+	border-radius: 50%;
+	border: 1px solid black;
+	position: relative;
+	padding: 2rem;
+}
+.hand {
+  width: 50%;
+  right: 50%;
+  height: 1px;
+  background: black;
+  position: absolute;
+  top: 50%;
+  border-radius: 6px;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+.hand.hour-hand {
+  width: 30%;
+  z-index: 3;
+}
+.hand.min-hand {
+  z-index: 10;
+  width: 40%;
+}
+.hand.second-hand {
+  width: 45%;
+}
+
+/* Old grid code */
+.big-grid {
+	display: grid;
+	grid-template-columns: repeat(10, 1fr);
+	grid-template-rows: repeat(10, 1fr);
+	grid-gap: 100px;
+	padding: 120px;
+}
+.big-grid div {
+	width: 500px;
+	padding: 20px;
+	border: 1px solid white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	transition: .2s;
+	cursor: crosshair;
+}
+.big-grid div:hover {
+	color: black;
+	border: 1px solid black;
+	transform: scale(1.2);
+}
+
+
+/* Parallax grid */
+#scene{
+}
+.pos1 {
+	position: ;
+}
+.space {
+	position: absolute;
+	left: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: 5px;
+	min-width: 300px;
+	min-height: 300px;
+}
+.space a {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border: 1px solid white;
+	padding: 20px;
+	transition: .2s linear;
+	min-width: 300px;
+	min-height: 300px;
+	border-radius: 50%;
+}
+.space a:hover {
+	background-color: white;
+	color: black;
+	border-radius: 0;
+	border: 1px solid black;
+	transform: scale(1.2);
+}
+
+/* Responsive Styles */
+
+@media screen and (max-width: 1000px) {
+}
