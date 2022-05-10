@@ -1,23 +1,21 @@
-/* Background color */
-var t = new Date().getHours();
-const daylightColors = ["#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22","#ffca22"];
-for (let i = 0; i < 24; i++) {
-    if (t == i) {
-        document.body.style.backgroundColor = daylightColors[i];
-        break;
-    }    
-}
+document.querySelector('button')?.addEventListener('click', async () => {
+  await Tone.start();
+  $(".start").hide();
+  $("#scene").show();
+  setInterval(setTime, 1000);
+  setTime();
+});
 
 /* Tick tock */
 const secondHand = document.querySelector(".second-hand");
 const minsHand = document.querySelector(".min-hand");
 const hourHand = document.querySelector(".hour-hand");
 var ticktock = true;
-const tick = new Tone.Player("assets/tick.mp3").toDestination();
-const tock = new Tone.Player("assets/tock.mp3").toDestination();
 
 function setTime() {
     const now = new Date();
+    const tick = new Tone.Player("assets/tick.mp3").toDestination();
+    const tock = new Tone.Player("assets/tock.mp3").toDestination();
 
     const seconds = now.getSeconds();
     const secondsDegrees = ((seconds / 60) * 360) + 90;
@@ -40,10 +38,6 @@ function setTime() {
     }
 }
 
-setInterval(setTime, 1000);
-
-setTime();
-
 /* Hover sound */
 const synth = new Tone.Synth().toDestination();
 
@@ -52,18 +46,23 @@ $(".big-grid div").mouseenter(function() {
 });
 
 /* Generate spaces */
-function addCode() {
-    var depth = (Math.random() * (0.5 - 7.0) + 7.0).toFixed(2);
-    var transX = String(Math.random() * 300 * (Math.round(Math.random()) ? 1 : -1));
-    var transY = String(Math.random() * 200 * (Math.round(Math.random()) ? 1 : -1));
+var alreadyBuilt = [];
+function buildSpaces() {
+    var transX = String(Math.random() * 2000 * (Math.round(Math.random()) ? 1 : -1));
+    var transY = String(Math.random() * 2000 * (Math.round(Math.random()) ? 1 : -1));
+    if (alreadyBuilt.includes(transX) || alreadyBuilt.includes(transY)) {
+      var breakLoop = false;
+      while (breakLoop == false) {
+        transX = String(Math.random() * 2000 * (Math.round(Math.random()) ? 1 : -1));
+        transY = String(Math.random() * 2000 * (Math.round(Math.random()) ? 1 : -1));
+          if (alreadyBuilt.includes(transX) == false & alreadyBuilt.includes(transY) == false) {
+            breakLoop = true;
+        }
+      }
+    }
     document.getElementById("scene").innerHTML += 
-      "<div class='space' data-depth="+depth+"><a href='#''><div class='space-position' style='transform:translate("+transX+"vw,"+transY+"vh)'><div class='space-content'><h2>THIS ___ IS OPEN</h2></div></div></a></div>";
-    console.log(depth, transX, transY);
+      "<div class='space' style='transform:translate("+transX+"px,"+transY+"px)'><div class='space-content'><h2>THIS ___ IS OPEN</h2></div></div>";
 }
-for (let i = 0; i < 100; i++) {
-    addCode();
+for (let i = 0; i < 50; i++) {
+    buildSpaces();
 }
-
-/* Initiate parallax */
-var scene = document.getElementById('scene');
-var parallax = new Parallax(scene);
