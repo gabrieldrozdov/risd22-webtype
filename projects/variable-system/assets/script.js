@@ -1,9 +1,25 @@
+/* Start screen and initalization */
 document.querySelector('button')?.addEventListener('click', async () => {
   await Tone.start();
+
+  /* Load in elements */
   $(".start").hide();
-  $("#scene").show();
+  $(".spaces").removeClass("hide");
+  $("body").addClass("initialize");
+
+  /* Initalize clock */
   setInterval(setTime, 1000);
   setTime();
+
+  /* Initalize clock */
+  setInterval(showSpaces, 1000);
+  showSpaces();
+
+  /* Hover sound */
+  const synth = new Tone.Synth().toDestination();
+  $(".space").mouseenter(function() {
+    synth.triggerAttackRelease("C2", "8n");
+  });
 });
 
 /* Tick tock */
@@ -14,8 +30,8 @@ var ticktock = true;
 
 function setTime() {
     const now = new Date();
-    const tick = new Tone.Player("assets/tick.mp3").toDestination();
-    const tock = new Tone.Player("assets/tock.mp3").toDestination();
+    const tick = new Audio("assets/tick.mp3");
+    const tock = new Audio("assets/tock.mp3");
 
     const seconds = now.getSeconds();
     const secondsDegrees = ((seconds / 60) * 360) + 90;
@@ -30,39 +46,71 @@ function setTime() {
     hourHand.style.transform = `rotate(${hourDegrees}deg)`;
 
     if (ticktock == true) {
-        tick.restart();
+        tick.play();
         ticktock = false;
     } else {
-        tock.restart();
+        tock.play();
         ticktock = true;
     }
 }
 
-/* Hover sound */
-const synth = new Tone.Synth().toDestination();
 
-$(".space-content").mouseenter(function() {
-  synth.triggerAttackRelease("C4", "8n");
-});
 
 /* Generate spaces */
-var alreadyBuilt = [];
-function buildSpaces() {
-    var transX = String(Math.random() * 2000 * (Math.round(Math.random()) ? 1 : -1));
-    var transY = String(Math.random() * 2000 * (Math.round(Math.random()) ? 1 : -1));
-    if (alreadyBuilt.includes(transX) || alreadyBuilt.includes(transY)) {
-      var breakLoop = false;
-      while (breakLoop == false) {
-        transX = String(Math.random() * 2000 * (Math.round(Math.random()) ? 1 : -1));
-        transY = String(Math.random() * 2000 * (Math.round(Math.random()) ? 1 : -1));
-          if (alreadyBuilt.includes(transX) == false & alreadyBuilt.includes(transY) == false) {
-            breakLoop = true;
-        }
-      }
-    }
-    document.getElementById("scene").innerHTML += 
-      "<div class='space' style='transform:translate("+transX+"px,"+transY+"px)'><div class='space-content'><h2>THIS ___ IS OPEN</h2></div></div>";
+/* Initalize list */
+var storeColRow = [];
+for (let i = 1; i < 11; i ++) {
+  for (let j = 1; j < 11; j ++) {
+    storeColRow.push([i,j]);
+  }
 }
-for (let i = 0; i < 50; i++) {
+/* Shuffle list */
+for (var i = storeColRow.length - 1; i > 0; i--) {
+  var j = Math.floor(Math.random() * (i + 1));
+  var temp = storeColRow[i];
+  storeColRow[i] = storeColRow[j];
+  storeColRow[j] = temp;
+}
+function buildSpaces() {
+  pickColRow = storeColRow[storeColRow.length-1];
+  storeColRow.pop();
+  var animationDirection = "normal";
+  if (Math.random() > .5) {
+    animationDirection = "reverse";
+  }
+  document.querySelector(".spaces").innerHTML += 
+    "<div class='space hide' id="+String(pickColRow[0])+String(pickColRow[1])+" style='grid-column:"+pickColRow[0]+"/span 1;grid-row:"+pickColRow[1]+"/span 1; animation-duration:"+String((Math.random() * 10 + 4))+"s; animation-direction:"+animationDirection+"'><h2>hi friendo</h2></div>";
+}
+for (let i = 0; i < 100; i++) {
     buildSpaces();
 }
+
+/* Show spaces */
+/* Initalize list */
+var storeColRow = [];
+for (let i = 1; i < 11; i ++) {
+  for (let j = 1; j < 11; j ++) {
+    storeColRow.push([i,j]);
+  }
+}
+/* Shuffle list */
+for (var i = storeColRow.length - 1; i > 0; i--) {
+  var j = Math.floor(Math.random() * (i + 1));
+  var temp = storeColRow[i];
+  storeColRow[i] = storeColRow[j];
+  storeColRow[j] = temp;
+}
+function showSpaces() {
+  pickColRow = storeColRow[storeColRow.length-1];
+  storeColRow.pop();
+  console.log(pickColRow);
+  $("#"+String(pickColRow[0])+String(pickColRow[1])).removeClass("hide");
+}
+
+/* Scroll with mouse movement */
+$(document).mousemove(function(e) {
+    var percentH = (e.clientY-50) / $(window).height();
+    var percentW = (e.clientX) / $(window).width();
+    $('body, html').scrollTop($(document).height() * percentH);
+    $('body, html').scrollLeft($(document).width() * percentW);
+});

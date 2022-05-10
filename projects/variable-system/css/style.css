@@ -28,12 +28,14 @@
 	box-sizing:border-box;
 }
 body {
-    transition: background-color 2s;
+		width: 100vw;
+		height: 100vh;
     font-family: "Authentic", sans-serif;
     padding: 0;
     margin: 0;
     color: white;
-    background-color: #ffca22;
+    background-color: black;
+    transition: background-color 1s;
 }
 h2 {
 	letter-spacing: -1px;
@@ -60,19 +62,30 @@ h2 {
   background: gray;
 }
 
+/* Start screen */
 .start {
   font-family: "Authentic", sans-serif;
 	width: 100vw;
 	height: 100vh;
-	font-size: 100px;
+	font-size: 48px;
+	line-height: 80px;
 	border: 20px solid white;
-	color: black;
-	background-color: #ffca22;
+	color: #ffca22;
+	background-color: black;
 	position: fixed;
 	z-index: 999;
+	cursor: pointer;
+	transition: .2s;
 }
-#scene {
-	display: none;
+.start:hover {
+	border: 40px solid white;
+	color: white;
+}
+.hide {
+	display: none !important;
+}
+.initialize {
+	background-color: #ffca22 !important;
 }
 
 /* Clock and UI */
@@ -103,7 +116,6 @@ h2 {
 	background: white;
 	position: absolute;
 	top: 50%;
-	border-radius: 6px;
 	transform-origin: 100%;
 	transform: rotate(90deg);
 	transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
@@ -122,15 +134,16 @@ h2 {
 }
 
 .spaces {
-	width: 5000px;
-	height: 5000px;
-	padding: 60px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	width: 4300px;
+	height: 4300px;
+	padding: 200px;
+	display: grid;
+	grid-template-columns: repeat(10, 300px);
+	grid-template-rows: repeat(10, 300px);
+	grid-gap: 100px;
 }
-.space-content {
-	border: 1px solid white;
+.space {
+	border: 20px solid white;
 	width: 300px;
 	height: 300px;
 	padding: 20px;
@@ -138,16 +151,13 @@ h2 {
 	justify-content: center;
 	align-items: center;
 	border-radius: 50%;
-	position: absolute;
 	transition: .2s;
+	animation: space 20s linear infinite;
 }
-.space-content:hover {
+.space:hover {
 	background-color: white;
 	color: black;
 	z-index: 100;
-}
-.space-content {
-	animation: space 20s linear infinite;
 }
 @keyframes space {
 	from { 	-webkit-transform: rotate(0deg) translateX(150px) rotate(0deg); }
