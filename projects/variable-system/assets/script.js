@@ -41,7 +41,7 @@ function setTime() {
 /* Hover sound */
 const synth = new Tone.Synth().toDestination();
 
-$(".big-grid div").mouseenter(function() {
+$(".space-content").mouseenter(function() {
   synth.triggerAttackRelease("C4", "8n");
 });
 
