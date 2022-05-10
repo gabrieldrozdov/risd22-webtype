@@ -106,8 +106,62 @@ h2 {
 	height: calc(50vmax - 80px);
 	border-radius: 50%;
 	position: relative;
-	padding: 2rem;
 	background-color: black;
+	border: 20px solid black;
+}
+.clock::before,
+.clock::after,
+.clock .marking{
+  content: '';
+  position: absolute;
+  width: 1;
+  height: 100%;
+  background: gray;
+  z-index: 0;
+  left: 50%;
+}
+.marking {
+  background: gray;
+  width: 1px;
+}
+.marking.marking-one {
+}
+.marking.marking-two {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  transform: rotate(30deg)
+}
+.marking.marking-three {
+  -webkit-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  transform: rotate(60deg)
+}
+.marking.marking-four {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  transform: rotate(90deg)
+}
+.marking.marking-five {
+  -webkit-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  transform: rotate(120deg)
+}
+.marking.marking-six {
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  transform: rotate(150deg)
+}
+.clock-middle {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background: black;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  z-index: 1;
 }
 .hand {
 	width: 50%;
@@ -133,6 +187,7 @@ h2 {
 	background-color: #ffca22;
 }
 
+/* Spaces (i.e. links) */
 .spaces {
 	width: 4300px;
 	height: 4300px;
@@ -143,7 +198,7 @@ h2 {
 	grid-gap: 100px;
 }
 .space {
-	border: 20px solid white;
+	border: 1px solid white;
 	width: 300px;
 	height: 300px;
 	padding: 20px;
@@ -153,6 +208,10 @@ h2 {
 	border-radius: 50%;
 	transition: .2s;
 	animation: space 20s linear infinite;
+	text-align: center;
+  overflow: hidden;
+  color: white;
+  text-decoration: none;
 }
 .space:hover {
 	background-color: white;

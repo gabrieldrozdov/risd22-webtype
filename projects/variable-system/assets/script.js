@@ -18,7 +18,7 @@ document.querySelector('button')?.addEventListener('click', async () => {
   /* Hover sound */
   const synth = new Tone.Synth().toDestination();
   $(".space").mouseenter(function() {
-    synth.triggerAttackRelease("C2", "8n");
+    synth.triggerAttackRelease("C2", "16n");
   });
 });
 
@@ -54,8 +54,6 @@ function setTime() {
     }
 }
 
-
-
 /* Generate spaces */
 /* Initalize list */
 var storeColRow = [];
@@ -71,46 +69,62 @@ for (var i = storeColRow.length - 1; i > 0; i--) {
   storeColRow[i] = storeColRow[j];
   storeColRow[j] = temp;
 }
-function buildSpaces() {
-  pickColRow = storeColRow[storeColRow.length-1];
-  storeColRow.pop();
-  var animationDirection = "normal";
-  if (Math.random() > .5) {
-    animationDirection = "reverse";
-  }
-  document.querySelector(".spaces").innerHTML += 
-    "<div class='space hide' id="+String(pickColRow[0])+String(pickColRow[1])+" style='grid-column:"+pickColRow[0]+"/span 1;grid-row:"+pickColRow[1]+"/span 1; animation-duration:"+String((Math.random() * 10 + 4))+"s; animation-direction:"+animationDirection+"'><h2>hi friendo</h2></div>";
-}
-for (let i = 0; i < 100; i++) {
-    buildSpaces();
-}
+/* Build Wikipedia api URL and fetch, then build spaces */
+var url = "https://en.wikipedia.org/w/api.php"; 
+var params = {
+    action: "query",
+    format: "json",
+    list: "random",
+    rnnamespace: "4",
+    rnlimit: "100"
+};
+url = url + "?origin=*";
+Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];});
+fetch(url)
+  .then(function(response){return response.json();})
+  .then(function(response) {
+    var randoms = response.query.random;
+    for (var r in randoms) {
+        pickColRow = storeColRow[storeColRow.length-1];
+        storeColRow.pop();
+        var animationDirection = "normal";
+        if (Math.random() > .5) {
+          animationDirection = "reverse";
+        }
+        document.querySelector(".spaces").innerHTML += 
+          "<a href='https://en.wikipedia.org/wiki/"+randoms[r].title+"' target='_blank' class='space hide' id="+String(pickColRow[0])+String(pickColRow[1])+" style='grid-column:"+pickColRow[0]+"/span 1;grid-row:"+pickColRow[1]+"/span 1; animation-duration:"+String((Math.random() * 10 + 4))+"s; animation-direction:"+animationDirection+"'><h2>"+randoms[r].title+"</h2></a>";
+    }
+  })
+  .catch(function(error){console.log(error);});
 
 /* Show spaces */
 /* Initalize list */
-var storeColRow = [];
+var storeColRow2 = [];
 for (let i = 1; i < 11; i ++) {
   for (let j = 1; j < 11; j ++) {
-    storeColRow.push([i,j]);
+    storeColRow2.push([i,j]);
   }
 }
 /* Shuffle list */
-for (var i = storeColRow.length - 1; i > 0; i--) {
+for (var i = storeColRow2.length - 1; i > 0; i--) {
   var j = Math.floor(Math.random() * (i + 1));
-  var temp = storeColRow[i];
-  storeColRow[i] = storeColRow[j];
-  storeColRow[j] = temp;
+  var temp = storeColRow2[i];
+  storeColRow2[i] = storeColRow2[j];
+  storeColRow2[j] = temp;
 }
 function showSpaces() {
-  pickColRow = storeColRow[storeColRow.length-1];
-  storeColRow.pop();
-  console.log(pickColRow);
-  $("#"+String(pickColRow[0])+String(pickColRow[1])).removeClass("hide");
+  pickColRow2 = storeColRow2[storeColRow2.length-1];
+  console.log(pickColRow2);
+  storeColRow2.pop();
+  $("#"+String(pickColRow2[0])+String(pickColRow2[1])).removeClass("hide");
 }
 
 /* Scroll with mouse movement */
 $(document).mousemove(function(e) {
-    var percentH = (e.clientY-50) / $(window).height();
-    var percentW = (e.clientX) / $(window).width();
-    $('body, html').scrollTop($(document).height() * percentH);
-    $('body, html').scrollLeft($(document).width() * percentW);
+    if($(window).width() >= 1000){
+      var percentH = (e.clientY-50) / $(window).height();
+      var percentW = (e.clientX) / $(window).width()/1.5;
+      $('body, html').scrollTop($(document).height() * percentH);
+      $('body, html').scrollLeft($(document).width() * percentW);
+    }
 });
