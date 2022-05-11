@@ -28,10 +28,10 @@ document.querySelector('button')?.addEventListener('click', async () => {
   freq = ["A","B","C","D","E","F","G"];
   $(".space").mouseenter(function() {
     var pitch = freq[Math.floor(Math.random()*7)];
-    var octave = String(Math.floor(Math.random()));
+    var octave = String(Math.floor(Math.random()*2));
     note = pitch+octave;
     synth.triggerAttackRelease(note, "16n");
-    synth.triggerAttackRelease(pitch+String(Math.floor(Math.random()+1)), "8n");
+    synth.triggerAttackRelease(pitch+String(Math.floor(Math.random()*2+1)), "8n");
   });
 });
 

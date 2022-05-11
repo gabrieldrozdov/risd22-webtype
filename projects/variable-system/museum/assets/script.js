@@ -20,14 +20,14 @@ document.querySelector('button')?.addEventListener('click', async () => {
     },
     envelope: {
       attack: 0.01,
-      release: .01,
+      release: 1,
     }
   });
   synth.chain(vol, Tone.Destination);
 
   freq = ["A","B","C","D","E","F","G"];
   $(".space").mouseenter(function() {
-    var pitch = freq[Math.floor(Math.random()*7)];
+    var pitch = freq[Math.floor(Math.random()*3+3)];
     var octave = String(Math.floor(Math.random()*3+3));
     note = pitch+octave;
     synth.triggerAttackRelease(note, "8n");

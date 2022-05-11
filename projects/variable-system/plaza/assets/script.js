@@ -20,20 +20,27 @@ document.querySelector('button')?.addEventListener('click', async () => {
     },
     envelope: {
       attack: 0.01,
-      release: 0.1,
+      release: 0.01,
     }
   });
   synth.chain(vol, Tone.Destination);
 
   freq = ["A","B","C","D","E","F","G"];
   $(".space").mouseenter(function() {
-    var pitch = freq[Math.floor(Math.random()*7)];
-    var octave1 = String(Math.floor(Math.random()*3+3));
-    var octave2 = String(Math.floor(Math.random()*3+3));
-    note1 = pitch+octave1;
-    note2 = pitch+octave2;
-    synth.triggerAttackRelease(note1, "4n");
-    synth.triggerAttackRelease(note2, "4n");
+    var pitch1 = freq[Math.floor(Math.random()*7)];
+    var pitch2 = freq[Math.floor(Math.random()*7)];
+    var octave1 = String(Math.floor(Math.random()*3+2));
+    var octave2 = String(Math.floor(Math.random()*3+2));
+    var octave3 = String(Math.floor(Math.random()*3+3));
+    var octave4 = String(Math.floor(Math.random()*3+3));
+    note1 = pitch1+octave1;
+    note2 = pitch1+octave2;
+    note3 = pitch2+octave3;
+    note4 = pitch2+octave4;
+    synth.triggerAttackRelease(note1, "32n");
+    synth.triggerAttackRelease(note2, "16n");
+    synth.triggerAttackRelease(note3, "8n");
+    synth.triggerAttackRelease(note4, "4n");
   });
 });
 
@@ -48,7 +55,7 @@ function setTime() {
     const now = new Date();
     const tick = new Audio("assets/tick.mp3");
     const tock = new Audio("assets/tock.mp3");
-    const chime = new Audio("assets/govt.mp3");
+    const chime = new Audio("assets/walk.mp3");
 
     const seconds = now.getSeconds();
     const secondsDegrees = ((seconds / 60) * 360) + 90;

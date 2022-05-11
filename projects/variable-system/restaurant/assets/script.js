@@ -16,11 +16,11 @@ document.querySelector('button')?.addEventListener('click', async () => {
   const synth = new Tone.PolySynth();
   synth.set({
     oscillator: {
-    type: "sine"
+    type: "square"
     },
     envelope: {
       attack: 0.01,
-      release: 0.1,
+      release: 0.01,
     }
   });
   synth.chain(vol, Tone.Destination);
@@ -28,12 +28,12 @@ document.querySelector('button')?.addEventListener('click', async () => {
   freq = ["A","B","C","D","E","F","G"];
   $(".space").mouseenter(function() {
     var pitch = freq[Math.floor(Math.random()*7)];
-    var octave1 = String(Math.floor(Math.random()*3+3));
-    var octave2 = String(Math.floor(Math.random()*3+3));
+    var octave1 = String(Math.floor(Math.random()*2+4));
+    var octave2 = String(Math.floor(Math.random()*2+4));
     note1 = pitch+octave1;
     note2 = pitch+octave2;
-    synth.triggerAttackRelease(note1, "4n");
-    synth.triggerAttackRelease(note2, "4n");
+    synth.triggerAttackRelease(note1, "32n");
+    synth.triggerAttackRelease(note2, "32n");
   });
 });
 
@@ -48,7 +48,7 @@ function setTime() {
     const now = new Date();
     const tick = new Audio("assets/tick.mp3");
     const tock = new Audio("assets/tock.mp3");
-    const chime = new Audio("assets/govt.mp3");
+    const chime = new Audio("assets/cafe.mp3");
 
     const seconds = now.getSeconds();
     const secondsDegrees = ((seconds / 60) * 360) + 90;
