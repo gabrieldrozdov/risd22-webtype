@@ -79,18 +79,17 @@ h2 {
 }
 .start-sub {
 	font-size: .5em;
-	background-color: #e62838;
-	color: #101820;
+	border: 1px solid #e62838;
 	padding: 20px 40px 20px 40px;
 	border-radius: 50px;
-	transition: .2s;
+	display: inline-block;
 }
 .start:hover {
 	border: 40px solid #e62838;
 	color: #dde5ed;
 }
 .start:hover .start-sub {
-	background-color: #dde5ed;
+	border: 1px solid #dde5ed;
 }
 .hide {
 	display: none !important;

@@ -46,7 +46,7 @@ function setTime() {
     const now = new Date();
     const tick = new Audio("assets/tick.mp3");
     const tock = new Audio("assets/tock.mp3");
-    const chime = new Audio("assets/govt.mp3");
+    const chime = new Audio("assets/shh.mp3");
 
     const seconds = now.getSeconds();
     const secondsDegrees = ((seconds / 60) * 360) + 90;

@@ -90,7 +90,7 @@ h2 {
 	background-color: #101820;
 }
 .start:hover .start-sub {
-	border: 1px solid #dde5ed
+	border: 1px solid #dde5ed;
 }
 .hide {
 	display: none !important;
