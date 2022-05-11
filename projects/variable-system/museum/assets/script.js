@@ -11,14 +11,27 @@ document.querySelector('button')?.addEventListener('click', async () => {
   setInterval(setTime, 1000);
   setTime();
 
-  /* Initalize clock */
-  setInterval(showSpaces, 1000);
-  showSpaces();
-
   /* Hover sound */
-  const synth = new Tone.Synth().toDestination();
+  const vol = new Tone.Volume(-12);
+  const synth = new Tone.PolySynth();
+  synth.set({
+    oscillator: {
+    type: "triangle"
+    },
+    envelope: {
+      attack: 0.01,
+      release: .01,
+    }
+  });
+  synth.chain(vol, Tone.Destination);
+
+  freq = ["A","B","C","D","E","F","G"];
   $(".space").mouseenter(function() {
-    synth.triggerAttackRelease("C2", "16n");
+    var pitch = freq[Math.floor(Math.random()*7)];
+    var octave = String(Math.floor(Math.random()*3+3));
+    note = pitch+octave;
+    synth.triggerAttackRelease(note, "8n");
+    synth.triggerAttackRelease(pitch+String(Math.floor(Math.random()*3+5)), "16n");
   });
 });
 
@@ -27,11 +40,13 @@ const secondHand = document.querySelector(".second-hand");
 const minsHand = document.querySelector(".min-hand");
 const hourHand = document.querySelector(".hour-hand");
 var ticktock = true;
+var spaceCount = 0;
 
 function setTime() {
     const now = new Date();
     const tick = new Audio("assets/tick.mp3");
     const tock = new Audio("assets/tock.mp3");
+    const chime = new Audio("assets/govt.mp3");
 
     const seconds = now.getSeconds();
     const secondsDegrees = ((seconds / 60) * 360) + 90;
@@ -48,9 +63,22 @@ function setTime() {
     if (ticktock == true) {
         tick.play();
         ticktock = false;
+        $(".space").removeClass("background1");
+        $(".space").addClass("background2");
     } else {
         tock.play();
         ticktock = true;
+        $(".space").removeClass("background2");
+        $(".space").addClass("background1");
+    }
+    if (seconds % 15 == 0 & spaceCount < 100) {
+      showSpaces();
+      showSpaces();
+      showSpaces();
+      showSpaces();
+      showSpaces();
+      spaceCount += 5;
+      chime.play();
     }
 }
 
@@ -75,7 +103,7 @@ var params = {
     action: "query",
     format: "json",
     list: "random",
-    rnnamespace: "4",
+    rnnamespace: "0",
     rnlimit: "100"
 };
 url = url + "?origin=*";
@@ -114,7 +142,6 @@ for (var i = storeColRow2.length - 1; i > 0; i--) {
 }
 function showSpaces() {
   pickColRow2 = storeColRow2[storeColRow2.length-1];
-  console.log(pickColRow2);
   storeColRow2.pop();
   $("#"+String(pickColRow2[0])+String(pickColRow2[1])).removeClass("hide");
 }
