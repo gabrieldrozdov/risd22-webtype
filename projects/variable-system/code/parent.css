@@ -272,3 +272,14 @@ a:hover {
 	from {transform: scale(.5);}
 	to {transform: scale(1.5);}
 }
+
+/* Responsive styles */
+@media screen and (max-width: 1000px) {
+	body {
+	  font-size: 24px;
+	}
+	.start {
+		font-size: 32px !important;
+		line-height: 32px !important;
+	}
+}
