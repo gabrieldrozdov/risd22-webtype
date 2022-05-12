@@ -126,24 +126,16 @@ function setTime() {
     if (ticktock == true) {
         tick.play();
         ticktock = false;
-        $(".place1").removeClass("place1-background1");
-        $(".place1").addClass("place1-background2");
-        $(".place2").removeClass("place2-background1");
-        $(".place2").addClass("place2-background2");
-        $(".place3").removeClass("place3-background1");
-        $(".place3").addClass("place3-background2");
-        $(".place4").removeClass("place4-background1");
-        $(".place4").addClass("place4-background2");
+        $(".place1").css("background-image", "url('assets/graphics/place1-background1.svg')");
+        $(".place2").css("background-image", "url('assets/graphics/place2-background1.svg')");
+        $(".place3").css("background-image", "url('assets/graphics/place3-background1.svg')");
+        $(".place4").css("background-image", "url('assets/graphics/place4-background1.svg')");
     } else {
         tock.play();
         ticktock = true;
-        $(".place1").removeClass("place1-background2");
-        $(".place1").addClass("place1-background1");
-        $(".place2").removeClass("place2-background2");
-        $(".place2").addClass("place2-background1");
-        $(".place3").removeClass("place3-background2");
-        $(".place3").addClass("place3-background1");
-        $(".place4").removeClass("place4-background2");
-        $(".place4").addClass("place4-background1");
+        $(".place1").css("background-image", "url('assets/graphics/place1-background2.svg')");
+        $(".place2").css("background-image", "url('assets/graphics/place2-background2.svg')");
+        $(".place3").css("background-image", "url('assets/graphics/place3-background2.svg')");
+        $(".place4").css("background-image", "url('assets/graphics/place4-background2.svg')");
     }
 }

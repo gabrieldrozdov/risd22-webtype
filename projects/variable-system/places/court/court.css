@@ -28,9 +28,3 @@
 .initialize {
 	background-color: var(--red) !important;
 }
-.background1 {
-  background-image: url("background1.svg");
-}
-.background2 {
-  background-image: url("background2.svg");
-}

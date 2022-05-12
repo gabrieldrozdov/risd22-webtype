@@ -237,7 +237,7 @@ a:hover {
 	justify-content: center;
 	align-items: center;
 	border-radius: 50%;
-	transition: .2s;
+	transition: background-color .2s, border .2s, color .2s;
 	animation: space 20s linear infinite;
 	text-align: center;
   overflow: hidden;
@@ -246,6 +246,7 @@ a:hover {
   text-decoration: none;
   background-size: cover;
   background-position: center;
+  background-image: url("background1.svg");
 }
 .space h2 {
 	letter-spacing: -1px;

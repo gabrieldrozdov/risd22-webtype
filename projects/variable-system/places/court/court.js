@@ -63,13 +63,11 @@ function setTime() {
     if (ticktock == true) {
         tick.play();
         ticktock = false;
-        $(".space").removeClass("background1");
-        $(".space").addClass("background2");
+        $(".space").css("background-image", "url('background1.svg')");
     } else {
         tock.play();
         ticktock = true;
-        $(".space").removeClass("background2");
-        $(".space").addClass("background1");
+        $(".space").css("background-image", "url('background2.svg')");
     }
     if (seconds % 30 == 0 & spaceCount < 100) {
       showSpaces();
