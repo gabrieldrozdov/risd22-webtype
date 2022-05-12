@@ -4,48 +4,42 @@
 <head>
 	<meta charset="utf-8" />
 	<title>WIKI TOWNSHIP</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="code/parent.css">
+	<link rel="stylesheet" type="text/css" href="code/home.css">
 	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.39/Tone.js"></script>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 </head>
 
-<body><button class="start"><strong>Would you like to enter the township?</strong><br><br>Click anywhere to arrive.<br><br><span class="start-sub">View on a desktop with your sound on.</span></button>
-	<div class="ui">
-		<div class="border">
-			<div class="clock">
-				<div class="marking marking-one"></div>
-				<div class="marking marking-two"></div>
-				<div class="marking marking-three"></div>
-				<div class="marking marking-four"></div>
-				<div class="marking marking-five"></div>
-				<div class="marking marking-six"></div>
-				<div class="clock-middle">
-					<div class="hand hour-hand"></div>
-					<div class="hand min-hand"></div>
-					<div class="hand second-hand"></div>
-				</div>
-	      </div>
-	  </div>
+<body><button class="start"><strong>Would you like to enter the township?</strong><br><br>Click anywhere to arrive.<br><br><span class="start-sub">View on a desktop with your sound&nbsp;on.</span></button>
+	<div class="clock-container">
+		<div class="clock">
+			<div class="hand hour-hand"></div>
+			<div class="hand min-hand"></div>
+			<div class="hand second-hand"></div>
+		</div>
 	</div>
 
-	<div class="content hide">
-		<h1 class="title">Welcome to&nbsp;the<br><span style="color:#0f9e71">W</span><span style="color:#ffb600">I</span><span style="color:#1c6fd4">K</span><span style="color:#e62838">I</span> <span class="highlight">TOWNSHIP</span></h1>
-		<p class="desc">This project reimagines an online database (i.e. Wikipedia) as a virtual town, where types of pages are places located in a pseudo-physical spacetime thingamajig. The individual pages are then spaces (or people) within those places. And when you click a link to see a page, the sounds from the town remain with you.<br><br>In this town, you will meet <strong><span style="color:#0f9e71">people</span></strong>, hear <strong><span style="color:#ffb600">conversations</span></strong>, witness <strong><span style="color:#1c6fd4">art and knowledge</span></strong>, and observe <strong><span style="color:#e62838">governmental happenings</span></strong>.</p>
-		<h3 class="section-title">Our humble township has four unique places to visit:</h3>
+	<div class="home-content hide">
+		<h1 class="title">Welcome to&nbsp;the<br><span class="highlight">WIKI TOWNSHIP</span></h1>
+		<p class="desc">This project reimagines an online database (i.e. Wikipedia) as a virtual town, where types of pages are places located in a pseudo-physical spacetime thingamajig. The individual pages are then spaces (or people) within those places. And when you click a link to see a page, the sounds from the town remain with you.<br><br>In this town, you will meet <strong><span style="color:var(--green);">people</span></strong>, hear <strong><span style="color:var(--yellow);">conversations</span></strong>, witness <strong><span style="color:var(--blue);">art and knowledge</span></strong>, and observe <strong><span style="color:var(--red);">governmental happenings</span></strong>.</p>
+		<h3 class="places-title">Our humble township has four unique places to visit:</h3>
 		<div class="places">
-			<a href="plaza/" class="place1 place1-background1"><strong>PLAZA</strong></a>
-			<a href="restaurant/" class="place2 place2-background1"><strong>RESTAURANT</strong></a>
-			<a href="museum/" class="place3 place3-background1"><strong>MUSEUM</strong></a>
-			<a href="court/" class="place4 place4-background1"><strong>COURT</strong></a>
+			<a href="places/plaza/" class="place1 place1-background1"><strong>PLAZA</strong></a>
+			<a href="places/restaurant/" class="place2 place2-background1"><strong>RESTAURANT</strong></a>
+			<a href="places/museum/" class="place3 place3-background1"><strong>MUSEUM</strong></a>
+			<a href="places/court/" class="place4 place4-background1"><strong>COURT</strong></a>
 		</div>
 		<div class="footer">
 			<p>This project was created by <a target="_blank" href="https://www.gabrieldrozdov.com/">Gabriel Drozdov</a> for Marie Otsuka’s WEB TYPE course at RISD during the Spring 2022 semester.</p>
 			<p>Most of the icons were originally from <a href="https://iconmonstr.com/" target="_blank">iconmonstr.com</a>.</p>
+			<p>The typeface used is <a href="https://authentic.website/" target="_blank">AUTHENTIC SANS</a> by Christina Janus and Desmond Wong.</p>
 			<p><a href="../../" target="_blank">Click here</a> to see the other projects Gabriel created during the course.</p>
 		</div>
 	</div>
 
-	<script src="assets/script.js"></script>
+	<script src="code/home.js"></script>
+	<script src="code/scroll.js"></script>
 </body>
 
 </html>

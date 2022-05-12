@@ -1,0 +1,36 @@
+:root {
+  --white: #dde5ed;
+  --black: #101820;
+  --green: #0f9e71;
+  --yellow: #ffb600;
+  --blue: #1c6fd4;
+  --red: #e62838;
+}
+
+/* Overrides */
+
+.start {
+	border: 20px solid var(--white);
+	color: var(--black);
+	background-color: var(--green);
+}
+.start-sub {
+	border: 1px solid var(--black);
+}
+.start:hover {
+	border: 40px solid var(--green);
+	color: var(--green);
+	background-color: var(--black);
+}
+.start:hover .start-sub {
+	border: 1px solid var(--green);
+}
+.initialize {
+	background-color: var(--green) !important;
+}
+.background1 {
+  background-image: url("background1.svg");
+}
+.background2 {
+  background-image: url("background2.svg");
+}
