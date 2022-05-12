@@ -23,7 +23,7 @@ body {
 	position: fixed;
 	z-index: 999;
 	cursor: pointer;
-	transition: .2s;
+	transition: background-color .2s, color .2s, border .2s;
 }
 .start-sub {
 	font-size: .5em;

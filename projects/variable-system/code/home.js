@@ -109,7 +109,7 @@ var ticktock = true;
 function setTime() {
     const now = new Date();
     const tick = new Audio("assets/audio/tick.mp3");
-    const tock = new Audio("assets/audio/assets/tock.mp3");
+    const tock = new Audio("assets/audio/tock.mp3");
 
     const seconds = now.getSeconds();
     const secondsDegrees = ((seconds / 60) * 360) + 90;
